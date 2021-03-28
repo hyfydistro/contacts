@@ -5,13 +5,6 @@
 // TABS
 // ====
 
-main {
-  @include base.tablet-margin-preset;
-  @include utils.atSmallDevices {
-    @include base.mobile-margin-preset;
-  }
-}
-
 .tabs-container {
   display: flex;
   flex-direction: row;
@@ -19,9 +12,11 @@ main {
     top: base.$desktop-space-lv-1;
     bottom: base.$desktop-space-lv-1;
   }
+  @include base.tablet-margin-preset;
   @include utils.atSmallDevices {
     margin-top: base.$mobile-space-lv-1;
     margin-bottom: base.$mobile-space-lv-1;
+    @include base.mobile-margin-preset;
   }
 }
 
@@ -50,7 +45,7 @@ main {
   }
   @include utils.atSmallDevices {
     padding: {
-        top: base.$mobile-base-font-size;
+      top: base.$mobile-base-font-size;
       bottom: base.$mobile-base-font-size;
     }
   }
@@ -74,23 +69,28 @@ main {
   }
 }
 
-// ANIMATIONS
+
+// ============
+// # ANIMATIONS
+// ============
 .selected .tabs-option__inner-wrapper:hover::before {
-    left: 0px;
-    right: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 .selected .tabs-option__inner-wrapper::before {
-    background-color: base.$text-color;
-    bottom: 0px;
-    content: "";
-    height: 4px;
-    left: 18px;
-    position: absolute;
-    right: 18px;
-    transition: left 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s, right 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s, width 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s;
+  background-color: base.$text-color;
+  bottom: 0px;
+  content: "";
+  height: 4px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+  transition: left 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s,
+    right 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s,
+    width 0.267s cubic-bezier(0.1, 0.25, 0.75, 0.9) 0s;
 }
 
 .tabs-option:not(.selected):hover {
-    background: base.$cool-grey-10;
+  background: base.$cool-grey-10;
 }
