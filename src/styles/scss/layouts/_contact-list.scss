@@ -1,0 +1,96 @@
+@use "../base";
+@use "../utils";
+
+// ============
+// CONTACT-LIST
+// ============
+
+.contact-list {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: base.$desktop-base-font-size 32px;
+  margin-bottom: base.$desktop-space-lv-half;
+  @include utils.atSmallDevices {
+    padding: base.$mobile-base-font-size base.$mobile-space-lv-half;
+    margin-bottom: base.$mobile-space-lv-half;
+  }
+}
+
+.contact-list__icon--favorite,
+.contact-list__name,
+.contact-list__icon--right-arrow {
+  display: inline-block;
+}
+
+.fas.fa-chevron-right::before,
+.far.fa-star::before {
+  font-size: 26px;
+}
+
+.contact-list__icon--favorite {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  margin-right: base.$desktop-space-lv-1;
+  margin-left: base.$desktop-space-lv-half;
+  @include utils.atSmallDevices {
+    margin-left: base.$mobile-space-lv-half;
+    margin-right: base.$mobile-space-lv-1;
+  }
+}
+
+.far.fa-star {
+  margin: 0 auto;
+}
+
+.far.fa-star::before {
+    color: base.$text-color;
+    transition: font-size 0.2s ease-in-out;
+  }
+
+.contact-list__icon--right-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.fas.fa-chevron-right::before {
+  color: base.$cool-grey-30;
+}
+
+
+// ============
+// # ANIMATIONS
+// ============
+.contact-list:hover {
+    background: base.$cool-grey-10;
+  }
+
+// Arrow Icon
+.fas.fa-chevron-right {
+  transition: transform 0.1s ease-in;
+}
+
+.contact-list:hover .fas.fa-chevron-right {
+  position: relative;
+  transform: translateX(0.8em);
+}
+
+.contact-list:hover .fas.fa-chevron-right::before {
+  color: base.$cool-grey-50;
+}
+
+// Star Icon
+.contact-list__icon--favorite:hover .far.fa-star::before {
+  font-size: 34px;
+  color: base.$favourites-icon-color;
+}
