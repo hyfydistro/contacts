@@ -4,11 +4,12 @@
 @use 'styles/scss/base/space';
 @use 'styles/scss/base/color';
 
-/* ABSTRACTS */
+/* UTILITIES */
 @use 'styles/scss/utils/mixins';
 
 /* LAYOUTS */
 @use 'styles/scss/layouts/header';
+@use 'styles/scss/layouts/tabs';
 
 // Suggestions...
 /* COMPONENTS */
