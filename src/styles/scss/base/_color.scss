@@ -5,8 +5,8 @@
 
 // "Sky Blue"
 
-$sky-blue-05: #E5FBFF;
-$sky-blue-10: #CCF7FF;
+$sky-blue-05: #E5FBFF; // USED
+$sky-blue-10: #CCF7FF; // USED
 $sky-blue-20: #99EEFF;
 $sky-blue-30: #66E6FF;
 $sky-blue-40: #33DDFF;
@@ -17,7 +17,7 @@ $sky-blue-80: #005566;
 $sky-blue-90: #002B33;
 
 // Use case:
-// -
+// header bg
 
 // "Cool Gray"
 
@@ -28,12 +28,13 @@ $cool-grey-30: #9AAACB;
 $cool-grey-40: #788EBA;
 $cool-grey-50: #5772A8;
 $cool-grey-60: #455B87;
-$cool-grey-70: #344465;
+$cool-grey-70: #344465; // USED
 $cool-grey-80: #232E43;
 $cool-grey-90: #111722;
 
 // Use case:
 $bg-color: $cool-grey-10;
+$text-color: $cool-grey-70;
 
 // "Warm Grey"
 
