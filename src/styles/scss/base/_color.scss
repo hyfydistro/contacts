@@ -1,0 +1,89 @@
+// =====
+// COLOR
+// =====
+// - rom light to dark order
+
+// "Sky Blue"
+
+$sky-blue-05: #E5FBFF;
+$sky-blue-10: #CCF7FF;
+$sky-blue-20: #99EEFF;
+$sky-blue-30: #66E6FF;
+$sky-blue-40: #33DDFF;
+$sky-blue-50: #00D2FC; // MAIN
+$sky-blue-60: #00AACC;
+$sky-blue-70: #008099;
+$sky-blue-80: #005566;
+$sky-blue-90: #002B33;
+
+// Use case:
+// -
+
+// "Cool Gray"
+
+$cool-grey-05: #EEF1F6;
+$cool-grey-10: #E0E5EF; // MAIN
+$cool-grey-20: #BCC7DC;
+$cool-grey-30: #9AAACB;
+$cool-grey-40: #788EBA;
+$cool-grey-50: #5772A8;
+$cool-grey-60: #455B87;
+$cool-grey-70: #344465;
+$cool-grey-80: #232E43;
+$cool-grey-90: #111722;
+
+// Use case:
+$bg-color: $cool-grey-10;
+
+// "Warm Grey"
+
+$warm-grey-05: #F2F0F4;
+$warm-grey-10: #E5E1EA;
+$warm-grey-20: #CBC4D4;
+$warm-grey-30: #B1A6BF;
+$warm-grey-40: #9789A9;
+$warm-grey-50: #7D6B94;
+$warm-grey-60: #645676;
+$warm-grey-70: #4B4059;
+$warm-grey-80: #312A3A; // MAIN
+$warm-grey-90: #19151E;
+
+// Use case:
+$text-color: $cool-grey-80;
+$icon-star-color: $warm-grey-50;
+$icon-right-arrow-color: $warm-grey-30;
+
+
+// "Rose Red"
+
+$rose-red-05: #FFE5ED;
+$rose-red-10: #FFCCDA;
+$rose-red-20: #FF99B5;
+$rose-red-30: #FF6691;
+$rose-red-40: #FF3D73; // MAIN
+$rose-red-50: #FF0047;
+$rose-red-60: #CC0039;
+$rose-red-70: #99002B;
+$rose-red-80: #66001C;
+$rose-red-90: #33000E;
+
+// Use case:
+$error-text-color: $rose-red-40;
+// $error-bg-color: n/a
+// $error-border-color: n/a
+
+// "Orange Yellow"
+
+$orange-yellow-05: #FFF4E5;
+$orange-yellow-10: #FFE9CC;
+$orange-yellow-20: #FFD299;
+$orange-yellow-30: #FFB95F; // MAIN
+$orange-yellow-40: #FFA633;
+$orange-yellow-50: #FF8F00;
+$orange-yellow-60: #CC7300;
+$orange-yellow-70: #995600;
+$orange-yellow-80: #663900;
+$orange-yellow-90: #331D00;
+
+// Use case:
+$favourites-icon-color: $orange-yellow-30

@@ -1,0 +1,37 @@
+// ======
+// MIXINS
+// ======
+
+// MEDIA QUERIES
+// DESKTOP
+// $XXXLARGE: n/a
+// TODO: Test the following sizes...
+// $XXLARGE: 1280px;
+// $XLARGE: 1024px;
+
+// TABLET
+// $MEDIUM: 768px;
+
+// MOBILE
+$SMALL: 641px;
+// $XXSMALL: n/a
+// $XSMALL: n/a
+
+$MAX-WIDTH: 992px;
+$MIN-WIDTH: 375px;
+
+@mixin atLargeDevices(){
+    @media all and (min-width: $MAX-WIDTH){
+        @content;
+    }
+}
+// @mixin atMediumDevices(){
+//     @media all and (min-width: $MEDIUM){
+//         @content;
+//     }
+// }
+@mixin atSmallDevices(){
+    @media all and (max-width: $SMALL){
+        @content;
+    }
+}

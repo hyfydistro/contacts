@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="author" content="Caroline Rozali" />
+    <title>Contacts Web App</title>
+    <!--[if lt IE 11]>
+      Please upgrade to a modern browser. [Download Google
+      Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=Cj0KCQjwvvj5BRDkARIsAGD9vlKrsJd5weM-ATHUVtg8KtOLvotH5BOcbV5Hcui7o3WkDxWBQCqBgGkaAhOvEALw_wcB&gclsrc=aw.ds)
+    <![endif]-->
+  </head>
+
+  <body>
+    <header>
+      <h1>Contacts</h1>
+
+      <button class="btn" type="button"><h3>Add</h3></button>
+      <button class="btn hidden" type="button"><h3>Edit</h3></button>
+    </header>
+
+    <div class="options-container hidden">
+      <button class="btn" type="button"><h3>Add New Contact</h3></button>
+    </div>
+
+    <main>
+      <div class="tabs">
+        <a class="tabs-outer-container" href="#">
+          <span class="tabs-inner-container">
+            <h3 class="text--semi-bold">All Contacts</h3>
+          </span>
+        </a>
+        <a class="tabs-outer-container" href="#">
+          <span class="tabs-inner-container">
+            <h3>Favorites</h3>
+          </span>
+        </a>
+      </div>
+
+      <section class="contact-container">
+        <div class="contact-container__placeholder">
+          <img src="#" alt="" />
+          <a href="#"><p>No contact available. Add contact.</p></a>
+        </div>
+
+        <div class="contact-list">
+          <span class="contact-list__icon--favorite"></span>
+          <span class="contact-list__name"><p>John Doe</p></span>
+          <span class="contact-list__icon--right-arrow"></span>
+        </div>
+        <div class="contact-list">
+          <span class="contact-list__icon--favorite"></span>
+          <span class="contact-list__name"><p>John Doe</p></span>
+          <span class="contact-list__icon--right-arrow"></span>
+        </div>
+        <div class="contact-list">
+          <span class="contact-list__icon--favorite"></span>
+          <span class="contact-list__name"><p>John Doe</p></span>
+          <span class="contact-list__icon--right-arrow"></span>
+        </div>
+      </section>
+
+      <section class="contact-view">
+        <h2>John Doe</h2>
+
+        <div class="contact-view__email">
+          <div class="contact-view__email-label">
+            <span class="contact-view__email-label--icon"></span>
+            <span class="contact-view__email-label--label"
+              ><p class="text--semi-bold">Email</p></span
+            >
+          </div>
+          <div class="contact-view__email-input">
+            <input class="contact-view__email-input--text" type="text" />
+          </div>
+        </div>
+
+        <div class="contact-view__phone">
+          <div class="contact-view__phone-label">
+            <span class="contact-view__phone-label--icon"></span>
+            <span class="contact-view__phone-label--label"><p class="text--semi-bold">Phone</p></span>
+          </div>
+          <div class="contact-view__phone-input">
+            <input class="contact-view__view__phone-input--text" type="text" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="module">
+      <div class="module-header">
+        <span class="btn"><h3>Cancel</h3></span>
+        <span class="title">Add Contact</span>
+        <span class="btn"><h3>Save</h3></span>
+      </div>
+
+      <div class="module-form">
+        <div class="module-form__name">
+          <div class="module-form__name-label">
+            <span class="module-form__name-label--icon"></span>
+            <span class="module-form__name-label--label"><p class="text--semi-bold">Name</p></span>
+          </div>
+          <div class="module-form__name-input">
+            <input class="module-form__name-input--text" type="text" />
+          </div>
+        </div>
+
+        <div class="module-form__email">
+          <div class="module-form__email-label">
+            <span class="module-form__email-label--icon"></span>
+            <span class="module-form__email-label--label"><p class="text--semi-bold">Email</p></span>
+          </div>
+          <div class="module-form__email-input">
+            <input class="module-form__email-input--text" type="text" />
+          </div>
+        </div>
+
+        <div class="contact-view__phone">
+          <div class="contact-view__phone-label">
+            <span class="contact-view__phone-label--icon"></span>
+            <span class="contact-view__phone-label--label"><p class="text--semi-bold">Phone</p></span>
+          </div>
+          <div class="contact-view__phone-input">
+            <input class="contact-view__phone-input--text" type="text" />
+          </div>
+        </div>
+
+        <button type="button"><h3>Delete Contact</h3></button>
+      </div>
+    </div>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+  </body>
+</html>
