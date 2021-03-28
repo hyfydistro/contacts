@@ -5,10 +5,10 @@
 @use 'styles/scss/base/color';
 
 /* ABSTRACTS */
-@use 'styles/scss/abstracts/mixins';
+@use 'styles/scss/utils/mixins';
 
-/* LAYOUT */
-// @use 'styles/scss/layouts/main';
+/* LAYOUTS */
+@use 'styles/scss/layouts/header';
 
 // Suggestions...
 /* COMPONENTS */

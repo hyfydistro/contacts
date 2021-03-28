@@ -1,0 +1,116 @@
+@use "../base";
+@use "../utils";
+
+// ======
+// HEADER
+// ======
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  background: rgb(204, 247, 255);
+  background: linear-gradient(
+    90deg,
+    base.$sky-blue-10 0%,
+    base.$sky-blue-05 100%
+  );
+  max-width: utils.$MAX-WIDTH;
+  @include base.tablet-padding-preset;
+  @include utils.atSmallDevices {
+    @include base.mobile-padding-preset;
+  }
+}
+
+header h1,
+header h3 {
+  display: inline-block;
+  color: base.$text-color;
+}
+
+.logo-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-edit,
+.fa-address-book,
+.fa-plus {
+  margin-right: base.$desktop-space-lv-quarter;
+  @include utils.atSmallDevices {
+    margin-right: base.$mobile-space-lv-quarter;
+  }
+}
+
+.fa-address-book::before {
+  font-size: 20px;
+  color: base.$text-color;
+  @include utils.atSmallDevices {
+    font-size: 18px;
+  }
+}
+
+.fa-edit::before,
+.fa-plus::before {
+    font-size: 18px;
+  color: base.$text-color;
+  @include utils.atSmallDevices {
+    font-size: 14px;
+  }
+}
+
+.btn__text {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+// ==========
+// ANIMATIONS
+// ==========
+// * Effects Description: color change slide in
+.color-slide {
+  background: linear-gradient(
+    to right,
+    base.$cool-grey-60,
+    base.$cool-grey-60 50%,
+    base.$text-color 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+// ELEMENT STATE
+.color-slide:hover {
+    background-position: 0 100%;
+}
+
+.btn__text:active .fa-edit,
+.btn__text:active .fa-plus,
+.btn__text:active h3 {
+    background-color: base.$cool-grey-20;
+    background-clip: text;
+}
+
+// * Effects Description: Ripple effect
+// .ripple {
+//   background-position: center;
+//   transition: background 0.8s;
+// }
+// .ripple:hover {
+//   background: base.$sky-blue-05
+//     radial-gradient(circle, transparent 1%, base.$sky-blue-10 1%) center/15000%;
+// }
+// .ripple:active {
+//   background-color: transparent;
+//   background-size: 100%;
+//   transition: background 0s;
+// }
