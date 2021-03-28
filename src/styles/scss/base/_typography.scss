@@ -48,7 +48,7 @@
 // }
 
 // FONT FACE
-$primary-fontface: "Lexend", sans-serif,'Times New Roman';
+$primary-fontface: "Lexend", sans-serif, 'Arial';
 // $secondary-fontface: n/a
 // $text-fontface: n/a
 
@@ -82,24 +82,24 @@ html {
     font-size: $desktop-base-font-size;
     h1 {
         font-size: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio});
-        font-family: "$primary-fontface";
-        font-weight: 600;
+        font-family: $primary-fontface;
+        font-weight: 500;
         line-height: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * 1.1);
         text-transform: uppercase;
     }
     h2 {
         font-size: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio});
-        font-family: "$primary-fontface";
-        font-weight: 600;
+        font-family: $primary-fontface;
+        font-weight: 500;
         line-height: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * 1.1);
     }
     h3 {
         font-size: calc(1rem * #{$desktop-header-text-scale-ratio});
-        font-family: "$primary-fontface";
+        font-family: $primary-fontface;
         font-weight: normal;
     }
     p {
-        font-family: "$primary-fontface";
+        font-family: $primary-fontface;
         font-weight: normal;
         font-size: $desktop-base-font-size;
         line-height: 1.5;
@@ -112,7 +112,7 @@ html {
 }
 
 .text--semi-bold {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .text--italic {
@@ -155,7 +155,7 @@ html {
         h1 {
             // font-size: calc(1rem * #{$mobile-header-text-scale-ratio} * #{$mobile-header-text-scale-ratio} * #{$mobile-header-text-scale-ratio});
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 500;
             text-transform: none;
             line-height: calc(1rem * #{$mobile-body-text-scale-ratio} * #{$mobile-body-text-scale-ratio} * #{$mobile-body-text-scale-ratio} * 1.1);
         }
