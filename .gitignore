@@ -52,3 +52,5 @@ dist
 
 # noise files
 package-lock.json
+favicon.ico
+manifest.webmanifest
