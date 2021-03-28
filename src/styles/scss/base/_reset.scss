@@ -12,3 +12,14 @@ html {
 a {
     text-decoration: none;
 }
+
+button {
+    width: auto;
+    overflow: visible;
+    border: none;
+    background: transparent;
+}
+
+.hidden {
+    display: none !important;
+}
