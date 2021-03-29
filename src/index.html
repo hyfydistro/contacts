@@ -48,7 +48,7 @@
       <button class="btn" type="button"><h3>Add New Contact</h3></button>
     </div>
 
-    <div class="tabs-container">
+    <div class="tabs-container hidden">
       <a class="tabs-option selected" href="#">
         <span class="tabs-option__inner-wrapper">
           <h3 class="text--semi-bold">All Contacts</h3>
@@ -63,7 +63,7 @@
     </div>
 
     <main>
-      <section class="contact-container">
+      <section class="contact-container hidden">
         <div class="contact-paceholder__container hidden">
           <img src="#" alt="" />
           <a href="#"><p>No contact available. Add contact.</p></a>
@@ -87,30 +87,26 @@
           </div>
         </section>
 
-        <section class="contact-view">
+        <section class="contact-view__container">
           <h2>John Doe</h2>
 
-          <div class="contact-view__email">
+          <div class="contact-view__email-container">
             <div class="contact-view__email-label">
-              <span class="contact-view__email-label--icon"></span>
-              <span class="contact-view__email-label--label"
-                ><p class="text--semi-bold">Email</p></span
-              >
+              <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
+              <span class="contact-view__email-label--label"><p class="text--semi-bold">Email</p></span>
             </div>
             <div class="contact-view__email-input">
-              <input class="contact-view__email-input--text" type="text" />
+              <p class="contact-view__email-input--text" type="text">johndoe@example.com</p>
             </div>
           </div>
 
-          <div class="contact-view__phone">
+          <div class="contact-view__phone-container">
             <div class="contact-view__phone-label">
-              <span class="contact-view__phone-label--icon"></span>
-              <span class="contact-view__phone-label--label"
-                ><p class="text--semi-bold">Phone</p></span
-              >
+              <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
+              <span class="contact-view__phone-label--label"><p class="text--semi-bold">Phone</p></span>
             </div>
             <div class="contact-view__phone-input">
-              <input class="contact-view__view__phone-input--text" type="text" />
+              <p class="contact-view__view__phone-input--text" type="text">555-555-1234</p>
             </div>
           </div>
         </div>
