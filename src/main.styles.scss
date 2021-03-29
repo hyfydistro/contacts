@@ -13,11 +13,16 @@
 @use 'styles/scss/layouts/main';
 @use 'styles/scss/layouts/contact-list';
 @use 'styles/scss/layouts/contact-view';
+@use 'styles/scss/layouts/module';
+
+/* COMPONENTS */
+@use 'styles/scss/components/icons';
+@use 'styles/scss/components/fields';
+@use 'styles/scss/components/buttons';
 
 // TODO
 // - contact-paceholder__container
 // - tabs-option
 
 // Suggestions...
-/* COMPONENTS */
 /* ANIMATIONS */

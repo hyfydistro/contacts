@@ -1,0 +1,45 @@
+@use "../base";
+@use "../utils";
+
+// =======
+// BUTTONS
+// =======
+
+.btn__block {
+  display: block;
+  outline: none;
+  border-radius: 999px;
+  padding: base.$desktop-base-font-size
+    calc(#{base.$desktop-base-font-size} * 2);
+  margin: 0 auto;
+  @include utils.atSmallDevices {
+    padding: base.$mobile-base-font-size calc(#{base.$mobile-base-font-size} * 2);
+    width: 100%;
+  }
+}
+
+// # "Delete Contact" button
+.module-form__button-container {
+  width: 338px;
+  max-width: 290px;
+  margin: 0 auto;
+  padding-top: base.$desktop-space-lv-2;
+//   padding-left: 34px; // * Hotfix: styles to align with relative components
+  @include utils.atSmallDevices {
+    width: auto;
+    max-width: 100%;
+    @include base.mobile-margin-preset;
+  }
+}
+
+.btn__block--error {
+  color: base.$error-text-color;
+  border: 1px solid base.$error-btn-border-color;
+}
+
+.btn__block--error:focus,
+.btn__block--error:active,
+.btn__block--error:hover {
+    background: base.$error-btn-bg-color;
+    color: base.$rose-red-10;
+}

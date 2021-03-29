@@ -1,0 +1,187 @@
+@use "../base";
+@use "../utils";
+
+// ======
+// MODULE
+// ======
+
+// TODO
+// Add slidein effect with script
+
+.module__wrapper {
+  display: block;
+}
+
+.module {
+  position: absolute;
+  width: 100%;
+  max-width: 768px;
+  top: base.$desktop-space-lv-2;
+  background-color: #ffffff;
+  border-radius: 25px;
+  z-index: 100; // ! Wap with base Z-index
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding-bottom: base.$desktop-space-lv-2;
+  @include utils.atSmallDevices {
+    position: relative;
+    top: 0;
+    border-radius: 0;
+    padding-bottom: base.$mobile-space-lv-2;
+  }
+}
+
+.module--shadow {
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  margin-bottom: base.$desktop-space-lv-2;
+  @include base.tablet-padding-preset;
+  @include utils.atSmallDevices {
+    height: 64px;
+    background: rgb(204, 247, 255);
+    background: linear-gradient(
+      90deg,
+      base.$sky-blue-10 0%,
+      base.$sky-blue-05 100%
+    );
+    margin-bottom: base.$mobile-space-lv-1;
+    @include base.mobile-padding-preset;
+  }
+}
+
+// *Hotfix: hacks to get it to center
+.module__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow: auto;
+  width: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.btn__text h3,
+.module__title {
+  display: inline-block;
+}
+
+.module-form__fields > div:not(:last-child) {
+  margin-bottom: base.$desktop-space-lv-1;
+  @include utils.atSmallDevices {
+    margin-bottom: calc(#{base.$mobile-space-lv-1} * 2);
+  }
+}
+
+.module-form__fields > div:last-child {
+    margin-bottom: base.$desktop-space-lv-3;
+    @include utils.atSmallDevices {
+      margin-bottom: base.$mobile-space-lv-3;
+    }
+
+}
+
+.module-form__name-label,
+.module-form__name-input,
+.module-form__email-label,
+.module-form__email-input,
+.module-form__phone-label,
+.module-form__phone-input {
+  display: flex;
+  align-items: center;
+  width: 338px;
+  margin: 0 auto;
+  padding: base.$desktop-base-font-size base.$desktop-space-lv-1;
+  @include utils.atSmallDevices {
+    padding: base.$mobile-base-font-size base.$mobile-space-lv-1;
+  }
+}
+
+.module-form__name-label--icon,
+.module-form__email-label--icon,
+.module-form__phone-label--icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-right: base.$mobile-space-lv-quarter;
+}
+
+.module-form__name-input--text,
+.module-form__email-input--text,
+.module-form__phone-input--text {
+  // * Hotfix: to align with relative element
+  border-bottom: base.$cool-grey-70 2px solid;
+}
+
+.module__overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background-color: Gray;
+  z-index: 1;
+}
+
+.module__overlay.hidden {
+  display: none;
+}
+
+// ==========
+// ANIMATIONS
+// ==========
+// # slide-line
+// Description:
+// Border bottom line slide in when active
+.field {
+  border: {
+    top: none;
+    left: none;
+    right: none;
+  }
+}
+
+label {
+  display: inline-block;
+  width: 83%;
+  overflow: hidden;
+  margin-left: 34px; // * Hotfix: styles to align with relative components
+  max-width: 290px; // 45 characters
+  padding-right: base.$mobile-space-lv-1;
+}
+
+.field {
+  color: base.$text-color;
+  outline: none;
+  width: 100%;
+  padding-bottom: 2px;
+}
+
+.slide-line {
+  position: relative;
+}
+
+.field + .slide-line .line-one {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  border-bottom: solid 3px base.$sky-blue-50;
+  width: 0;
+  transition: width 250ms ease-in-out;
+}
+
+.field:focus + .slide-line .line-one {
+  width: 100%;
+  transition: width 250ms ease-in-out;
+}

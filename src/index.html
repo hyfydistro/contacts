@@ -26,7 +26,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="hidden">
       <span class="logo-title">
         <i class="fas fa-address-book fa-flip-horizontal"></i>
         <h1>Contacts</h1>
@@ -87,7 +87,7 @@
           </div>
         </section>
 
-        <section class="contact-view__container">
+        <section class="contact-view__container hidden">
           <h2>John Doe</h2>
 
           <div class="contact-view__email-container">
@@ -113,53 +113,74 @@
       </section>
     </main>
 
-    <div class="module">
+    <div class="module__wrapper">
+    <div class="module module--shadow">
       <div class="module-header">
-        <span class="btn"><h3>Cancel</h3></span>
-        <span class="title">Add Contact</span>
-        <span class="btn"><h3>Save</h3></span>
+        <button class="btn__text"><h3>Cancel</h3></button>
+        <span class="module__title"><h2>Add Contact</h2></span>
+        <button class="btn__text"><i class="fas fa-check"></i><h3>Save</h3></button>
       </div>
 
       <div class="module-form">
-        <div class="module-form__name">
-          <div class="module-form__name-label">
-            <span class="module-form__name-label--icon"></span>
-            <span class="module-form__name-label--label"
-              ><p class="text--semi-bold">Name</p></span
-            >
+        <div class="module-form__fields">
+          <div class="module-form__name-container">
+            <div class="module-form__name-label">
+              <span class="module-form__name-label--icon"><i class="fas fa-user"></i></span>
+              <span class="module-form__name-label--label"><p class="text--semi-bold">Name</p></span>
+            </div>
+            <div class="module-form__name-input">
+              <label for="name">
+                <input class="module-form__name-input--text field" type="text" />
+                <div class="slide-line">
+                  <span class="line-one"></span>
+                  <span class="line-two"></span>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="module-form__name-input">
-            <input class="module-form__name-input--text" type="text" />
+
+          <div class="module-form__email-container">
+            <div class="module-form__email-label">
+              <span class="module-form__email-label--icon"><i class="far fa-envelope"></i></span>
+              <span class="module-form__email-label--label"><p class="text--semi-bold">Email</p></span>
+            </div>
+            <div class="module-form__email-input">
+              <label for="email">
+                <input class="module-form__email-input--text field" type="text" />
+                <div class="slide-line">
+                  <span class="line-one"></span>
+                  <span class="line-two"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="module-form__phone-container">
+            <div class="module-form__phone-label">
+              <span class="module-form__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
+              <span class="module-form__phone-label--label"><p class="text--semi-bold">Phone</p></span>
+            </div>
+            <div class="module-form__phone-input">
+              <label for="phone">
+              <input class="module-form__phone-input--text field" type="text" />
+              <div class="slide-line">
+                <span class="line-one"></span>
+                <span class="line-two"></span>
+              </div>
+            </label>
+            </div>
           </div>
         </div>
 
-        <div class="module-form__email">
-          <div class="module-form__email-label">
-            <span class="module-form__email-label--icon"></span>
-            <span class="module-form__email-label--label"
-              ><p class="text--semi-bold">Email</p></span
-            >
-          </div>
-          <div class="module-form__email-input">
-            <input class="module-form__email-input--text" type="text" />
-          </div>
-        </div>
 
-        <div class="contact-view__phone">
-          <div class="contact-view__phone-label">
-            <span class="contact-view__phone-label--icon"></span>
-            <span class="contact-view__phone-label--label"
-              ><p class="text--semi-bold">Phone</p></span
-            >
-          </div>
-          <div class="contact-view__phone-input">
-            <input class="contact-view__phone-input--text" type="text" />
-          </div>
+        <div class="module-form__button-container">
+          <button class="btn__block btn__block--error" type="button"><h3>Delete Contact</h3></button>
         </div>
-
-        <button type="button"><h3>Delete Contact</h3></button>
       </div>
     </div>
+  </div>
+
+  <div class="module__overlay hidden"></div>
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
   </body>
