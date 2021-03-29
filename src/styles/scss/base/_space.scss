@@ -8,7 +8,7 @@
 $line-height: 1.5;
 
 // MOBILE SPATIAL SYSTEM
-$mobile-space-lv-quarter: calc(#{$mobile-base-font-size} / $line-height / #{$line-height});
+$mobile-space-lv-quarter: calc(#{$mobile-base-font-size} / #{$line-height} / #{$line-height});
 $mobile-space-lv-half: calc(#{$mobile-base-font-size} / #{$line-height});
 $mobile-space-lv-1: calc(#{$mobile-base-font-size} * #{$line-height});
 $mobile-space-lv-2: calc(#{$mobile-base-font-size} * #{$line-height} * #{$line-height});
