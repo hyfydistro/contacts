@@ -4,6 +4,7 @@
 // ============
 // CONTACT-VIEW
 // ============
+
 .contact-view__container {
     @include base.tablet-margin-preset;
     @include utils.atSmallDevices {
@@ -32,8 +33,8 @@
     padding: base.$desktop-base-font-size base.$mobile-space-lv-1;
 }
 
-.contact-view__email-label--label,
 .contact-view__email-label--icon,
+.contact-view__email-label--label,
 .contact-view__phone-label--icon,
 .contact-view__phone-label--label {
     display: inline-block;
@@ -51,17 +52,4 @@
 .contact-view__email-input--text {
     // * Hotfix: to align with relative element
     padding-left: 34px;
-}
-
-.fas.fa-phone-alt,
-.far.fa-envelope {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.fa-phone-alt::before,
-.fa-envelope::before {
-    font-size: 18px;
 }

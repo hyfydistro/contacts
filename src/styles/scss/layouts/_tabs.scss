@@ -55,20 +55,6 @@
   color: base.$text-color !important;
 }
 
-.fa-star {
-  margin-right: base.$desktop-space-lv-quarter;
-  @include utils.atSmallDevices {
-    margin-right: base.$mobile-space-lv-quarter;
-  }
-}
-
-.fas.fa-star::before {
-  font-size: 20px;
-  @include utils.atSmallDevices {
-    font-size: 18px;
-  }
-}
-
 
 // ============
 // # ANIMATIONS

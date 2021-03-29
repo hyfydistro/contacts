@@ -1,0 +1,86 @@
+@use "../base";
+@use "../utils";
+
+// =====
+// ICONS
+// =====
+
+// TODO
+// refactor duplicate lines
+
+// ===================
+// # Icons with toggle
+// ===================
+// # fa-star
+.fa-star {
+  margin-right: base.$desktop-space-lv-quarter;
+  @include utils.atSmallDevices {
+    margin-right: base.$mobile-space-lv-quarter;
+  }
+}
+
+.fas.fa-star::before {
+  font-size: 20px;
+  @include utils.atSmallDevices {
+    font-size: 18px;
+  }
+}
+
+// ==================
+// # Icon with labels
+// ==================
+// # fa-phone-alt
+// # fa-enevelope
+.fas.fa-phone-alt,
+.far.fa-envelope {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fa-phone-alt::before,
+.fa-envelope::before {
+  font-size: 22px;
+  @include utils.atSmallDevices {
+    font-size: 18px;
+  }
+}
+
+// ===================
+// # Icon with buttons
+// ===================
+// # fa-user
+// Use case:
+// - <div> .module-form
+//  |- <div> .module-form__name-container
+//      |- <div> .module-form__name-label--icon
+.fas.fa-user {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fa-user::before {
+  font-size: 22px;
+  @include utils.atSmallDevices {
+    font-size: 18px;
+  }
+}
+
+// # fa-check
+.fa-check {
+  margin-right: base.$desktop-space-lv-quarter;
+  @include utils.atSmallDevices {
+    margin-right: base.$mobile-space-lv-quarter;
+  }
+}
+
+.fa-check::before {
+  font-size: 18px;
+  color: base.$text-color;
+  @include utils.atSmallDevices {
+    font-size: 14px;
+  }
+}
