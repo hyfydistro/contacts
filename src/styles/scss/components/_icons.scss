@@ -11,6 +11,10 @@
 // ===================
 // # Icons with toggle
 // ===================
+// Use case:
+// - .tabs
+//  - .i
+//  before "Favorites" text
 // # fa-star
 .fa-star {
   margin-right: base.$desktop-space-lv-quarter;
@@ -18,11 +22,20 @@
     margin-right: base.$mobile-space-lv-quarter;
   }
 }
-
 .fas.fa-star::before {
   font-size: 20px;
   @include utils.atSmallDevices {
     font-size: 18px;
+  }
+}
+
+// Use case:
+// - .contact-list
+//  before contact name
+.pseudo--favorite::before {
+  font-size: 32px;
+  @include utils.atSmallDevices {
+    font-size: 28px;
   }
 }
 

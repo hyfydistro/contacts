@@ -1,124 +1,150 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <meta name="author" content="Caroline Rozali" />
-    <title>Contacts Web App</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome v5 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <!--[if lt IE 11]>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="author" content="Caroline Rozali" />
+  <title>Contacts Web App</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome v5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <!--[if lt IE 11]>
       Please upgrade to a modern browser. [Download Google
       Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=Cj0KCQjwvvj5BRDkARIsAGD9vlKrsJd5weM-ATHUVtg8KtOLvotH5BOcbV5Hcui7o3WkDxWBQCqBgGkaAhOvEALw_wcB&gclsrc=aw.ds)
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <header class="hidden">
-      <span class="logo-title">
-        <i class="fas fa-address-book fa-flip-horizontal"></i>
-        <h1>Contacts</h1>
+<body>
+  <header class="">
+    <span class="logo-title">
+      <i class="fas fa-address-book fa-flip-horizontal"></i>
+      <h1>Contacts</h1>
+    </span>
+
+    <!-- Add button -->
+    <button class="btn__text btn__text--add-form color-slide" type="button">
+      <i class="fas fa-plus"></i>
+      <h3>Add</h3>
+    </button>
+    <!-- Edit button -->
+    <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
+      <i class="fas fa-edit"></i>
+      <h3>Edit</h3>
+    </button>
+  </header>
+
+  <div class="options-container hidden">
+    <button class="btn" type="button">
+      <h3>Add New Contact</h3>
+    </button>
+  </div>
+
+  <div class="tabs-container">
+    <a class="tabs-option selected" href="#">
+      <span class="tabs-option__inner-wrapper">
+        <h3 class="text--semi-bold">All Contacts</h3>
       </span>
+    </a>
+    <a class="tabs-option" href="#">
+      <span class="tabs-option__inner-wrapper">
+        <i class="fas fa-star"></i>
+        <h3>Favorites</h3>
+      </span>
+    </a>
+  </div>
 
-      <!-- Add button -->
-      <button class="btn__text color-slide" type="button">
-        <i class="fas fa-plus"></i>
-        <h3>Add</h3>
-      </button>
-      <!-- Edit button -->
-      <button class="btn__text color-slide hidden" type="button">
-        <i class="fas fa-edit"></i>
-        <h3>Edit</h3>
-      </button>
-    </header>
+  <main>
+    <section class="contact-container">
+      <div class="contact-paceholder__container hidden">
+        <img src="#" alt="" />
+        <a href="#">
+          <p>No contact available. Add contact.</p>
+        </a>
+      </div>
 
-    <div class="options-container hidden">
-      <button class="btn" type="button"><h3>Add New Contact</h3></button>
-    </div>
-
-    <div class="tabs-container hidden">
-      <a class="tabs-option selected" href="#">
-        <span class="tabs-option__inner-wrapper">
-          <h3 class="text--semi-bold">All Contacts</h3>
-        </span>
-      </a>
-      <a class="tabs-option" href="#">
-        <span class="tabs-option__inner-wrapper">
-          <i class="fas fa-star"></i>
-          <h3>Favorites</h3>
-        </span>
-      </a>
-    </div>
-
-    <main>
-      <section class="contact-container hidden">
-        <div class="contact-paceholder__container hidden">
-          <img src="#" alt="" />
-          <a href="#"><p>No contact available. Add contact.</p></a>
+      <div class="contact-list__container">
+        <div class="contact-list">
+          <label class="contact-list__icon--favorite">
+            <input type="checkbox" id="checkboxID">
+            <span for="checkboxID" class="pseudo--favorite"></span>
+          </label>
+          <span class="contact-list__name">
+            <p>John Doe</p>
+          </span>
+          <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
         </div>
-
-        <div class="contact-list__container">
-          <div class="contact-list">
-            <span class="contact-list__icon--favorite"><i class="far fa-star"></i></span></span>
-            <span class="contact-list__name"><p>John Doe</p></span>
-            <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-          </div>
-          <div class="contact-list">
-            <span class="contact-list__icon--favorite"><i class="far fa-star"></i></span></span>
-            <span class="contact-list__name"><p>John Doe</p></span>
-            <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-          </div>
-          <div class="contact-list">
-            <span class="contact-list__icon--favorite"><i class="far fa-star"></i></span>
-            <span class="contact-list__name"><p>John Doe</p></span>
-            <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-          </div>
-        </section>
-
-        <section class="contact-view__container hidden">
-          <h2>John Doe</h2>
-
-          <div class="contact-view__email-container">
-            <div class="contact-view__email-label">
-              <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
-              <span class="contact-view__email-label--label"><p class="text--semi-bold">Email</p></span>
-            </div>
-            <div class="contact-view__email-input">
-              <p class="contact-view__email-input--text" type="text">johndoe@example.com</p>
-            </div>
-          </div>
-
-          <div class="contact-view__phone-container">
-            <div class="contact-view__phone-label">
-              <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
-              <span class="contact-view__phone-label--label"><p class="text--semi-bold">Phone</p></span>
-            </div>
-            <div class="contact-view__phone-input">
-              <p class="contact-view__view__phone-input--text" type="text">555-555-1234</p>
-            </div>
-          </div>
+        <div class="contact-list">
+          <label class="contact-list__icon--favorite">
+            <input type="checkbox" id="checkboxID">
+            <span for="checkboxID" class="pseudo--favorite"></span>
+          </label> <span class="contact-list__name">
+            <p>John Doe</p>
+          </span>
+          <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
         </div>
-      </section>
-    </main>
+        <div class="contact-list">
+          <label class="contact-list__icon--favorite">
+            <input type="checkbox" id="checkboxID">
+            <span for="checkboxID" class="pseudo--favorite"></span>
+          </label> <span class="contact-list__name">
+            <p>John Doe</p>
+          </span>
+          <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </section>
 
-    <div class="module__wrapper">
+    <section class="contact-view__container hidden">
+      <h2>John Doe</h2>
+
+      <div class="contact-view__email-container">
+        <div class="contact-view__email-label">
+          <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
+          <span class="contact-view__email-label--label">
+            <p class="text--semi-bold">Email</p>
+          </span>
+        </div>
+        <div class="contact-view__email-input">
+          <p class="contact-view__email-input--text" type="text">johndoe@example.com</p>
+        </div>
+      </div>
+
+      <div class="contact-view__phone-container">
+        <div class="contact-view__phone-label">
+          <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
+          <span class="contact-view__phone-label--label">
+            <p class="text--semi-bold">Phone</p>
+          </span>
+        </div>
+        <div class="contact-view__phone-input">
+          <p class="contact-view__view__phone-input--text" type="text">555-555-1234</p>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="module__wrapper off-screen">
     <div class="module module--shadow">
       <div class="module-header">
-        <button class="btn__text"><h3>Cancel</h3></button>
-        <span class="module__title"><h2>Add Contact</h2></span>
-        <button class="btn__text"><i class="fas fa-check"></i><h3>Save</h3></button>
+        <button class="btn__text btn__text--cancel-form">
+          <h3>Cancel</h3>
+        </button>
+        <span class="module__title">
+          <h2>Add Contact</h2>
+          <!-- <h2>Add Edit</h2> -->
+        </span>
+        <button class="btn__text btn__text--save-form"><i class="fas fa-check"></i>
+          <h3>Save</h3>
+        </button>
+        <button class="btn__text btn__text--update-form hidden"><i class="fas fa-check"></i>
+          <h3>Update</h3>
+        </button>
       </div>
 
       <div class="module-form">
@@ -126,7 +152,9 @@
           <div class="module-form__name-container">
             <div class="module-form__name-label">
               <span class="module-form__name-label--icon"><i class="fas fa-user"></i></span>
-              <span class="module-form__name-label--label"><p class="text--semi-bold">Name</p></span>
+              <span class="module-form__name-label--label">
+                <p class="text--semi-bold">Name</p>
+              </span>
             </div>
             <div class="module-form__name-input">
               <label for="name">
@@ -142,7 +170,9 @@
           <div class="module-form__email-container">
             <div class="module-form__email-label">
               <span class="module-form__email-label--icon"><i class="far fa-envelope"></i></span>
-              <span class="module-form__email-label--label"><p class="text--semi-bold">Email</p></span>
+              <span class="module-form__email-label--label">
+                <p class="text--semi-bold">Email</p>
+              </span>
             </div>
             <div class="module-form__email-input">
               <label for="email">
@@ -158,23 +188,27 @@
           <div class="module-form__phone-container">
             <div class="module-form__phone-label">
               <span class="module-form__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
-              <span class="module-form__phone-label--label"><p class="text--semi-bold">Phone</p></span>
+              <span class="module-form__phone-label--label">
+                <p class="text--semi-bold">Phone</p>
+              </span>
             </div>
             <div class="module-form__phone-input">
               <label for="phone">
-              <input class="module-form__phone-input--text field" type="text" />
-              <div class="slide-line">
-                <span class="line-one"></span>
-                <span class="line-two"></span>
-              </div>
-            </label>
+                <input class="module-form__phone-input--text field" type="text" />
+                <div class="slide-line">
+                  <span class="line-one"></span>
+                  <span class="line-two"></span>
+                </div>
+              </label>
             </div>
           </div>
         </div>
 
 
         <div class="module-form__button-container">
-          <button class="btn__block btn__block--error" type="button"><h3>Delete Contact</h3></button>
+          <button class="btn__block btn__block--error" type="button">
+            <h3>Delete Contact</h3>
+          </button>
         </div>
       </div>
     </div>
@@ -182,6 +216,7 @@
 
   <div class="module__overlay hidden"></div>
 
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-  </body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+</body>
+
 </html>
