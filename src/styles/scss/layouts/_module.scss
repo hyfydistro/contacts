@@ -8,6 +8,10 @@
 // TODO
 // Add slidein effect with script
 
+body {
+  overflow: auto;
+}
+
 .module__wrapper {
   display: block;
 }
@@ -26,6 +30,7 @@
   padding-bottom: base.$desktop-space-lv-2;
   @include utils.atSmallDevices {
     position: relative;
+    width: 100vw;
     top: 0;
     border-radius: 0;
     padding-bottom: base.$mobile-space-lv-2;
@@ -83,11 +88,10 @@
 }
 
 .module-form__fields > div:last-child {
-    margin-bottom: base.$desktop-space-lv-3;
-    @include utils.atSmallDevices {
-      margin-bottom: base.$mobile-space-lv-3;
-    }
-
+  margin-bottom: base.$desktop-space-lv-3;
+  @include utils.atSmallDevices {
+    margin-bottom: base.$mobile-space-lv-3;
+  }
 }
 
 .module-form__name-label,
@@ -138,6 +142,17 @@
   display: none;
 }
 
+// * Used with script
+.off-screen {
+  position: fixed;
+  left: 999px;
+}
+
+.on-screen {
+  position: absolute;
+  top: 0;
+}
+
 // ==========
 // ANIMATIONS
 // ==========
@@ -152,7 +167,9 @@
   }
 }
 
-label {
+label[for="phone"],
+label[for="email"],
+label[for="name"] {
   display: inline-block;
   width: 83%;
   overflow: hidden;
