@@ -39,6 +39,7 @@
     </button>
   </header>
 
+  <!-- TODO add media query - when it should be hidden or not -->
   <div class="options-container hidden">
     <button class="btn" type="button">
       <h3>Add New Contact</h3>
@@ -46,12 +47,12 @@
   </div>
 
   <div class="tabs-container">
-    <a class="tabs-option selected" href="#">
+    <a class="tabs-option tabs-option__all-contacts selected" href="#">
       <span class="tabs-option__inner-wrapper">
         <h3 class="text--semi-bold">All Contacts</h3>
       </span>
     </a>
-    <a class="tabs-option" href="#">
+    <a class="tabs-option tabs-option__favorites" href="#">
       <span class="tabs-option__inner-wrapper">
         <i class="fas fa-star"></i>
         <h3>Favorites</h3>
@@ -64,39 +65,26 @@
       <div class="contact-paceholder__container hidden">
         <img src="#" alt="" />
         <a href="#">
-          <p>No contact available. Add contact.</p>
+          <p>No contact available. Add contact?</p>
         </a>
       </div>
 
       <div class="contact-list__container">
-        <div class="contact-list">
-          <label class="contact-list__icon--favorite">
+        <!-- Sample of a contact element -->
+        <!-- <div class="contact-list">
+          <label class="contact-list__icon--favorite" for="checkboxID">
             <input type="checkbox" id="checkboxID">
-            <span for="checkboxID" class="pseudo--favorite"></span>
+            <span class="pseudo--favorite"></span>
           </label>
           <span class="contact-list__name">
             <p>John Doe</p>
           </span>
           <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-        </div>
-        <div class="contact-list">
-          <label class="contact-list__icon--favorite">
-            <input type="checkbox" id="checkboxID">
-            <span for="checkboxID" class="pseudo--favorite"></span>
-          </label> <span class="contact-list__name">
-            <p>John Doe</p>
-          </span>
-          <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-        </div>
-        <div class="contact-list">
-          <label class="contact-list__icon--favorite">
-            <input type="checkbox" id="checkboxID">
-            <span for="checkboxID" class="pseudo--favorite"></span>
-          </label> <span class="contact-list__name">
-            <p>John Doe</p>
-          </span>
-          <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
-        </div>
+        </div> -->
+      </div>
+
+        <!-- Favorites List -->
+        <div class="contact-list__container--favourites hidden"></div>
     </section>
 
     <section class="contact-view__container hidden">
@@ -137,7 +125,7 @@
         </button>
         <span class="module__title">
           <h2>Add Contact</h2>
-          <!-- <h2>Add Edit</h2> -->
+          <h2 class="hidden">Add Edit</h2>
         </span>
         <button class="btn__text btn__text--save-form"><i class="fas fa-check"></i>
           <h3>Save</h3>
@@ -206,7 +194,7 @@
 
 
         <div class="module-form__button-container">
-          <button class="btn__block btn__block--error" type="button">
+          <button class="btn__block btn__block--error btn__block--delete-form" type="button">
             <h3>Delete Contact</h3>
           </button>
         </div>

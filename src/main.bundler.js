@@ -1,3 +1,4 @@
+console.log("initialising...");
 // ======
 // Files
 // ======
@@ -11,4 +12,10 @@ import "./main.styles.scss";
 // Scripts
 // =======
 // ! Work in Prorgress...
+import "./scripts/animate.js";
+import "./scripts/model.js";
+import "./scripts/view.js";
+import "./scripts/controller.js";
+import "./scripts/app.js";
 
+console.log("finish initialising...");
