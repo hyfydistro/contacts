@@ -98,6 +98,7 @@ html {
         font-family: $primary-fontface;
         font-weight: normal;
     }
+    .btn__wrapper--view-contact,
     .field,
     p {
         font-family: $primary-fontface;
@@ -150,6 +151,7 @@ html {
 @media screen and (max-width: 641px) {
     html {
         font-size: $mobile-base-font-size;
+        .btn__wrapper--view-contact,
         .field,
         p {
             font-size: $mobile-base-font-size;

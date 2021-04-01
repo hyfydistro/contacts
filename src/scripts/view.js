@@ -15,19 +15,32 @@
 class View {
   constructor() {
     // SELECTORS
-    this.contactList = this.getElement(".contact-list__container");
-    this.contactListPlaceholder = this.getElement(
-      ".contact-paceholder__container"
-    );
-    this.contactListFavorites = this.getElement(
-      ".contact-list__container--favourites"
-    );
+    // header
+    this.logo = this.getElement(".logo-title");
+    this.addSmallBtn = this.getElement(".btn__text--add-form");
+    // this.addLargeBtn
+    this.editBtn = this.getElement(".btn__text--edit-form");
+    this.backBtn = this.getElement(".btn__text--back-form");
 
+    // ! WIP >>
+    // contact list
+    this.contactListWrapper = this.getElement(".contact-container");
+    // this.contactListWrapperAll = this.getElement(".btn__wrapper--view-contact");
+    // this.contactListFavAll = document.querySelectorAll(".contact-list__icon--favorite");
+    // this.contactListWrapperBtn = this.getElement(".btn__wrapper--view-contact");
+    this.contactList = this.getElement(".contact-list__container");
+    // ! <<
+    this.contactListPlaceholder = this.getElement(".contact-paceholder__container");
+    this.contactListFavorites = this.getElement(".contact-list__container--favourites");
+
+    this.tabsContainer = this.getElement(".tabs-container");
     this.tabsOptionsAllContacts = this.getElement(".tabs-option__all-contacts");
     this.tabsOptionsFavorites = this.getElement(".tabs-option__favorites");
 
     // ! WIP >>
     // contact view page
+    this.contactViewWrapper = this.getElement(".contact-view__container");
+    this.contactViewName = this.getElement(".contact-view__container").firstElementChild;
     // ! <<
 
     // module
@@ -104,11 +117,7 @@ class View {
     const contactDiv = this.createElement("div", "contact-list");
     contactDiv.id = contact.id;
 
-    const contactFavoriteWrapper = this.createElement(
-      "label",
-      "contact-list__icon--favorite"
-    );
-    contactFavoriteWrapper.for = "checkboxID";
+    const contactFavoriteWrapper = this.createElement("label", "contact-list__icon--favorite");
     const contactFavoriteCheckbox = this.createElement("input");
     contactFavoriteCheckbox.type = "checkbox";
     contactFavoriteCheckbox.id = "checkboxID";
@@ -117,25 +126,24 @@ class View {
 
     contactFavoriteWrapper.append(contactFavoriteCheckbox, contactFavoriteIcon);
 
+    const contentWrapper = this.createElement("a", "btn__wrapper--view-contact");
+    contentWrapper.classList.add("btn__wrapper");
+    contentWrapper.setAttribute("href", "#");
+
     const contactNameWrapper = this.createElement("span", "contact-list__name");
     const contactNameText = this.createElement("p");
     const contactNameTextNode = document.createTextNode(contact.name);
     contactNameText.append(contactNameTextNode);
     contactNameWrapper.append(contactNameText);
 
-    const contactArrowIconWrapper = this.createElement(
-      "span",
-      "contact-list__icon--right-arrow"
-    );
+    const contactArrowIconWrapper = this.createElement("span", "contact-list__icon--right-arrow");
     const contactArrowIcon = this.createElement("i");
     contactArrowIcon.classList.add("fas", "fa-chevron-right");
     contactArrowIconWrapper.append(contactArrowIcon);
 
-    contactDiv.append(
-      contactFavoriteWrapper,
-      contactNameWrapper,
-      contactArrowIconWrapper
-    );
+    contentWrapper.append(contactNameWrapper, contactArrowIconWrapper);
+
+    contactDiv.append(contactFavoriteWrapper, contentWrapper);
 
     return contactDiv;
   }
@@ -167,7 +175,7 @@ class View {
   }
 
   // EVENT LISTENERS
-  bindChangetoFavoriteTabs() {
+  bindChangeToFavoriteTabs() {
     // Display Favorites contact list
     this.tabsOptionsFavorites.addEventListener("click", (e) => {
       e.preventDefault();
@@ -191,7 +199,7 @@ class View {
     });
   }
 
-  bindChangetoAllContactsTabs() {
+  bindChangeToAllContactsTabs() {
     // Display All contact list
     this.tabsOptionsAllContacts.addEventListener("click", (e) => {
       e.preventDefault();
@@ -211,6 +219,67 @@ class View {
 
       this.contactListPlaceholder.lastElementChild.firstElementChild.textContent =
         "No contact available. Add contact?";
+    });
+  }
+
+  bindDisplayContactView(contactData, setCurrentIdHandler) {
+    const contactListWrapperAll = document.querySelectorAll(".btn__wrapper--view-contact");
+    const contactListArr = Array.from(contactListWrapperAll);
+
+    contactListArr.forEach((contactElement) => {
+      contactElement.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetContactId = contactElement.parentElement.id;
+
+        this.displayContactView(contactData, targetContactId, setCurrentIdHandler);
+      });
+    });
+  }
+
+  // Set up contact view
+  displayContactView(contactData, targetContactId, setCurrentIdHandler) {
+    // TODO
+    // if on larger screen "back" button should not be visible
+
+    this.contactViewWrapper.classList.remove("hidden");
+
+    // change header options
+    // hide everything else
+    let mq = window.matchMedia("(max-width: 600px)");
+    if (mq) {
+      this.contactListWrapper.classList.add("hidden");
+      this.tabsContainer.classList.add("hidden");
+      this.logo.classList.add("hidden");
+      this.addSmallBtn.classList.add("hidden");
+      this.editBtn.classList.remove("hidden");
+      this.backBtn.classList.remove("hidden");
+    }
+
+    const [targetContactData] = contactData.filter((contact) => contact.id == targetContactId);
+
+    setCurrentIdHandler(targetContactData.id);
+  }
+
+  onBackBtn() {
+    this.backBtn.addEventListener("click", () => {
+      // TODO
+      // if on larger screen "back" button should not be visible
+
+      // Reverse effect
+      this.contactViewWrapper.classList.add("hidden");
+
+      // change header options
+      // hide everything else
+      let mq = window.matchMedia("(max-width: 600px)");
+      if (mq) {
+        this.contactListWrapper.classList.remove("hidden");
+        this.tabsContainer.classList.remove("hidden");
+        this.logo.classList.remove("hidden");
+        this.addSmallBtn.classList.remove("hidden");
+        this.editBtn.classList.add("hidden");
+        this.backBtn.classList.add("hidden");
+      }
     });
   }
 }

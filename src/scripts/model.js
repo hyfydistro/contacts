@@ -15,14 +15,31 @@ class Model {
     this.email = email;
     this.phone = phone;
 
+    // set for editting options
+    this.currentId = "";
+
     this.contactlist = [
-      // {
-      //   id: 1,
-      //   name: "Caroline",
-      //   email: "caroline@example.com",
-      //   phone: "",
-      //   favorite: false
-      // }
+      {
+        id: 1,
+        name: "john",
+        email: "johnn@example.com",
+        phone: "",
+        favorite: false
+      },
+      {
+        id: 2,
+        name: "Sam",
+        email: "yo@example.com",
+        phone: "",
+        favorite: true
+      },
+      {
+        id: 3,
+        name: "Max",
+        email: "yo@example.com",
+        phone: "",
+        favorite: false
+      }
     ];
   }
 
@@ -75,6 +92,16 @@ class Model {
     //       }
     //     : contact
     // );
+
+    // If target contains classList .contact-list__icon--favorite
+    // get current contact id
+    //
+  }
+
+  setCurrentId(id) {
+    this.currentId = id;
+
+    console.log("model id received", this.currentId);
   }
 }
 
