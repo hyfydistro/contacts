@@ -20,7 +20,8 @@
     "object-shorthand": "off",
     "class-methods-usethis:": "off",
     "indent": ["error", 2, { "MemberExpression": 1 }],
-      "quote-props": ["warn", "as-needed"]
+    "quote-props": ["warn", "as-needed"],
+    "allowNamedFunctions": true
   },
   "overrides": [
     {
@@ -28,5 +29,9 @@
       "excludedFiles": "tests/"
     }
   ],
-  "ignorePatterns": ["prettier.config.js", "babel.config.js", "postcss.config.js"]
+  "ignorePatterns": [
+    "prettier.config.js",
+    "babel.config.js",
+    "postcss.config.js"
+  ]
 }
