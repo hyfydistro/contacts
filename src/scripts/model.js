@@ -1,4 +1,5 @@
 import getUniqueId from "./libs/idGenerator.js";
+import formatPhoneNo from "./libs/formatePhoneNo.js";
 
 // TODO
 // Install shortif module
@@ -6,65 +7,46 @@ import getUniqueId from "./libs/idGenerator.js";
 // =====
 // Model
 // =====
-// localStorage API used
+// - localStorage API used
 
 class Model {
-  constructor(id = getUniqueId(), name, email, phone = "") {
+  constructor(id, name, email, phone = "", favorite = false) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.phone = phone;
+    this.favorite = favorite;
 
     // set for editting options
     this.currentId = "";
 
-    this.contactlist = [
-      {
-        id: 1,
-        name: "john",
-        email: "johnn@example.com",
-        phone: "",
-        favorite: false
-      },
-      {
-        id: 2,
-        name: "Sam",
-        email: "yo@example.com",
-        phone: "",
-        favorite: true
-      },
-      {
-        id: 3,
-        name: "Max",
-        email: "yo@example.com",
-        phone: "",
-        favorite: false
-      }
-    ];
+    this.contactlist = JSON.parse(localStorage.getItem("contacts")) || [];
   }
 
   logData() {
-    // console.log(this.contactlist);
     return this.contactlist;
   }
 
+  commitToDataBase(UpdatedContactList) {
+    localStorage.setItem("contacts", JSON.stringify(UpdatedContactList));
+  }
 
-  addContact(name, email, phone, favorite) {
+  addContact(name, email, phone = "", favorite = false) {
     const contact = {
       id: getUniqueId(),
       name: name,
       email: email,
-      phone: phone,
+      phone: formatPhoneNo(phone),
       favorite: favorite
     };
 
+    // Update state
     this.contactlist.push(contact);
 
-    // TODO
     // Update LS
+    this.commitToDataBase(this.contactlist);
   }
 
-  // ! Refactor with indents to make it more readable
   // Map through all todos, and replace the text of the todo with the specified id
   // ? rename to updateContact
   editContact(id, updatedName, updatedEmail, updatedPhone = "") {
@@ -78,30 +60,33 @@ class Model {
     // this.contactlist = this.contactlist.filter((contact) => contact.id !== id);
   }
 
-  // Filpe the complete boolean on the specified contact
+  // Toggle the "favorite" boolean on the targeted contact
   // - favorite
-  toggleFavorite(id) {
-    // this.contactlist = this.contactlist.map((contact) =>
-    //   contact.id === id
-    //     ? {
-    //         id: contact.id,
-    //         name: contact.id,
-    //         email: contact.email,
-    //         phone: contact.phone,
-    //         favorite: !contact.favorite
-    //       }
-    //     : contact
-    // );
+  updateFavorite(targetContactId) {
+    const UpdatedContactList = this.contactlist.map((currentContact) => {
+      if (currentContact.id == targetContactId) {
+        const foo = {
+          id: currentContact.id,
+          name: currentContact.name,
+          email: currentContact.email,
+          phone: currentContact.phone,
+          favorite: !currentContact.favorite
+        };
 
-    // If target contains classList .contact-list__icon--favorite
-    // get current contact id
-    //
+        return foo;
+      }
+
+      return currentContact;
+    });
+
+    // Update State
+    this.contactlist = UpdatedContactList;
+    // Update LS
+    this.commitToDataBase(UpdatedContactList);
   }
 
   setCurrentId(id) {
     this.currentId = id;
-
-    console.log("model id received", this.currentId);
   }
 }
 

@@ -67,14 +67,14 @@
 
   <main>
     <section class="contact-container">
-      <div class="contact-paceholder__container hidden">
+      <div class="contact-paceholder__container">
         <img src="#" alt="" />
         <a href="#">
           <p>No contact available. Add contact?</p>
         </a>
       </div>
 
-      <div class="contact-list__container">
+      <div class="contact-list__container hidden">
         <!-- Sample of a contact element -->
 
         <!-- <div class="contact-list">
@@ -97,7 +97,7 @@
     </section>
 
     <section class="contact-view__container hidden">
-      <h2>John Doe</h2>
+      <h2 class="contact-view__name-input--text">John Doe</h2>
 
       <div class="contact-view__email-container">
         <div class="contact-view__email-label">
@@ -136,7 +136,7 @@
           <h2>Add Contact</h2>
           <h2 class="hidden">Add Edit</h2>
         </span>
-        <button class="btn__text btn__text--save-form"><i class="fas fa-check"></i>
+        <button class="btn__text btn__text--save-form" type="submit" form="module-form"><i class="fas fa-check"></i>
           <h3>Save</h3>
         </button>
         <button class="btn__text btn__text--update-form hidden"><i class="fas fa-check"></i>
@@ -144,23 +144,27 @@
         </button>
       </div>
 
-      <div class="module-form">
+      <form class="module-form" id="module-form" action="javascript:myFunction(); return false;">
         <div class="module-form__fields">
           <div class="module-form__name-container">
             <div class="module-form__name-label">
               <span class="module-form__name-label--icon"><i class="fas fa-user"></i></span>
               <span class="module-form__name-label--label">
-                <p class="text--semi-bold">Name</p>
+                <p class="text--semi-bold">Name*</p>
               </span>
             </div>
             <div class="module-form__name-input">
               <label for="name">
-                <input class="module-form__name-input--text field" type="text" />
+                <input class="module-form__name-input--text field" type="text" maxlength="100" minlength="0" required />
                 <div class="slide-line">
                   <span class="line-one"></span>
                   <span class="line-two"></span>
                 </div>
               </label>
+            </div>
+            <!-- Alert Message: Error -->
+            <div class="module-form__name-error hidden">
+              <p class="module-form__name-error--text"></p>
             </div>
           </div>
 
@@ -168,17 +172,22 @@
             <div class="module-form__email-label">
               <span class="module-form__email-label--icon"><i class="far fa-envelope"></i></span>
               <span class="module-form__email-label--label">
-                <p class="text--semi-bold">Email</p>
+                <p class="text--semi-bold">Email*</p>
               </span>
             </div>
             <div class="module-form__email-input">
               <label for="email">
-                <input class="module-form__email-input--text field" type="text" />
+                <input class="module-form__email-input--text field" type="email" maxlength="100" minlength="0"
+                  required />
                 <div class="slide-line">
                   <span class="line-one"></span>
                   <span class="line-two"></span>
                 </div>
               </label>
+            </div>
+            <!-- Alert Message: Error -->
+            <div class="module-form__email-error hidden">
+              <p class="module-form__email-error--text"></p>
             </div>
           </div>
 
@@ -191,23 +200,27 @@
             </div>
             <div class="module-form__phone-input">
               <label for="phone">
-                <input class="module-form__phone-input--text field" type="text" />
+                <input class="module-form__phone-input--text field" type="tel" />
                 <div class="slide-line">
                   <span class="line-one"></span>
                   <span class="line-two"></span>
                 </div>
               </label>
             </div>
+            <!-- Alert Message: Error -->
+            <div class="module-form__phone-error hidden">
+              <p class="module-form__phone-error--text"></p>
+            </div>
           </div>
         </div>
 
 
-        <div class="module-form__button-container">
+        <div class="module-form__button-container hidden">
           <button class="btn__block btn__block--error btn__block--delete-form" type="button">
             <h3>Delete Contact</h3>
           </button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 

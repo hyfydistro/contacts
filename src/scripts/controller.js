@@ -4,27 +4,62 @@
 
 class Controller {
   constructor(model, view) {
-    this.model = model
-    this.view = view
+    this.model = model;
+    this.view = view;
 
-    // Display inital contact list
-    // Retrieve model 'contactList'
-    this.onContactListChanged(this.model.contactlist)
+    // Initial load
+    this.onInitialLoad(this.model.contactlist);
 
-    // Bindigngs
-    // Load Initial Event Listeners
-    this.view.bindChangeToFavoriteTabs()
-    this.view.bindChangeToAllContactsTabs()
-    this.view.bindDisplayContactView(this.model.contactlist, this.setCurrentId)
-    this.view.onBackBtn()
+    this.onContactListChanged(this.model.contactlist);
+
+    // Load Event Listeners
+    this.view.onChangeToFavoriteTabs(this.model.contactlist);
+    this.view.onChangeToAllContactsTabs();
+    this.view.onOpenAddContactForm();
+    this.view.onCloseAddContactForm();
+    this.view.onDisplayContactView(this.model.contactlist, this.setCurrentId);
+    this.view.onBackBtn();
+    this.view.onToggleFavorite(this.handleToggleFavorite);
+    this.view.onSaveContact(this.handleAddContact, this.model.contactlist);
+  }
+
+  onInitialLoad = (contactList) => {
+    // Re-render UI
+    this.view.renderContactList(contactList);
+    this.view.renderFavoriteList(contactList);
+
+    // Add event
+    this.view.displayContactList(contactList);
   }
 
   onContactListChanged = (contactList) => {
-    this.view.displayContactList(contactList);
+    // Re-render UI
+    this.view.renderContactList(contactList);
+    this.view.renderFavoriteList(contactList);
+
+    this.view.onDisplayContactView(this.model.contactlist, this.setCurrentId);
   }
 
   setCurrentId = (id) => {
     this.model.setCurrentId(id);
+  }
+
+  handleAddContact = (name, email, phone) => {
+    this.model.addContact(name, email, phone);
+    this.onContactListChanged(this.model.contactlist);
+
+    // Add event
+    this.view.onToggleFavorite(this.handleToggleFavorite);
+  }
+
+  handleToggleFavorite = (targetContactId) => {
+    this.model.updateFavorite(targetContactId);
+
+    // Re-render UI
+    this.onContactListChanged(this.model.contactlist);
+
+    // Add event
+    this.view.onToggleFavorite(this.handleToggleFavorite);
   }
 }
 
