@@ -27,7 +27,8 @@
     "no-underscore-dangle": "off",
     "eqeqeq": "off",
     "class-methods-use-this": "off",
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "prefer-destructuring": "off"
   },
   "overrides": [
     {
