@@ -12,7 +12,7 @@ import "./main.styles.scss";
 // =======
 // ! Work in Prorgress...
 // libs
-import "./scripts/mediaquery.js";
+import "./scripts/libs/mediaquery.js";
 import "./scripts/libs/validatePhoneNumber.js";
 import "./scripts/libs/validateEmail.js";
 import "./scripts/libs/idGenerator.js";
