@@ -1,6 +1,10 @@
 import validatePhoneNumber from "./libs/validatePhoneNumber.js";
 import validateEmail from "./libs/validateEmail.js";
 
+// Media Queries
+const mqMinWidth640px = window.matchMedia("(min-width: 640px)");
+const mqMaxWidth639px = window.matchMedia("(max-width: 639px)");
+
 // ====
 // VIEW
 // ====
@@ -246,8 +250,7 @@ class View {
 
     // change header options
     // hide everything else
-    const mq = window.matchMedia("(max-width: 600px)");
-    if (mq) {
+    if (mqMaxWidth639px.matches) {
       this.contactListWrapper.classList.add("hidden");
       this.tabsContainer.classList.add("hidden");
       this.logo.classList.add("hidden");
@@ -282,8 +285,7 @@ class View {
 
       // change header options
       // hide everything else
-      const mq = window.matchMedia("(max-width: 600px)");
-      if (mq) {
+      if (mqMaxWidth639px.matches) {
         this.contactListWrapper.classList.remove("hidden");
         this.tabsContainer.classList.remove("hidden");
         this.logo.classList.remove("hidden");
@@ -405,11 +407,21 @@ class View {
   closeModule() {
     this.moduleWrapper.classList.remove("on-screen");
     this.moduleWrapper.classList.add("off-screen");
+    if (mqMinWidth640px.matches) {
+      if (this.moduleOverlay.classList.contains("hidden")) {
+        this.moduleOverlay.classList.add("hidden");
+      }
+    }
   }
 
   openModule() {
     this.moduleWrapper.classList.remove("off-screen");
     this.moduleWrapper.classList.add("on-screen");
+    if (mqMinWidth640px.matches) {
+      if (this.moduleOverlay.classList.contains("hidden")) {
+        this.moduleOverlay.classList.remove("hidden");
+      }
+    }
   }
 }
 
