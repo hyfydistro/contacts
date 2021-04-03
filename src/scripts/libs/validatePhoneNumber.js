@@ -5,7 +5,7 @@
 // XXXXXXXXXX (max length: 10)
 
 export default function validatePhoneNumber (numebr) {
-  const regex = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if (numebr.match(regex)) {
     return true;
   }
