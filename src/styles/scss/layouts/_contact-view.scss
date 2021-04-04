@@ -6,9 +6,38 @@
 // ============
 
 .contact-view__container {
-    @include base.tablet-margin-preset;
+    max-width: 633.6px;
+    width: 633.6px;
+    border: {
+        top: 1px solid base.$cool-grey-20;
+        left: 1px solid base.$cool-grey-20;
+        right: 1px solid base.$cool-grey-20;
+    };
+    background-color: #FFFFFF;
+    @include utils.atMediumDevices {
+        margin-left: 0;
+    }
     @include utils.atSmallDevices {
-        @include base.mobile-margin-preset;
+        top: 64px; // * Height of header
+        transition: all 0.4s linear;
+        opacity: 1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: base.$z-index-1--followUpVisibility;
+        width: 100%;
+        border: none;
+        @include base.mobile-padding-preset;
+    }
+}
+
+.contact-view__container.hidden {
+    @include utils.atSmallDevices {
+        display: block !important;
+        position: fixed;
+        transform: translateX(999px);
+        opacity: 1;
+        pointer-events: none;
     }
 }
 
@@ -31,6 +60,10 @@
     display: flex;
     align-items: center;
     padding: base.$desktop-base-font-size base.$mobile-space-lv-1;
+}
+
+.contact-view__email-input {
+    overflow-wrap: anywhere;
 }
 
 .contact-view__email-label--icon,
