@@ -1,9 +1,6 @@
 import validatePhoneNumber from "./libs/validatePhoneNumber.js";
 import validateEmail from "./libs/validateEmail.js";
-
-// Media Queries
-const mqMinWidth640px = window.matchMedia("(min-width: 640px)");
-const mqMaxWidth639px = window.matchMedia("(max-width: 639px)");
+import { mqMinWidth640px, mqMaxWidth639px } from "./libs/mediaquery.js";
 
 // ====
 // VIEW
@@ -17,14 +14,17 @@ class View {
     // ======
     this.logo = this.getElement(".logo-title");
     this.addSmallBtn = this.getElement(".btn__text--add-form");
+    this.addLargeBtn = this.getElement(".btn__block-contained--add-form");
     // this.addLargeBtn
-    this.editBtn = this.getElement(".btn__text--edit-form");
+    this.editBtnAtHeader = document.querySelectorAll(".btn__text--edit-form")[0];
+    this.editBtnAtContactViewPage = document.querySelectorAll(".btn__text--edit-form")[1];
     this.backBtn = this.getElement(".btn__text--back-form");
     // tab options
     this.tabsContainer = this.getElement(".tabs-container");
     this.tabsOptionsAllContacts = this.getElement(".tabs-option__all-contacts");
     this.tabsOptionsFavorites = this.getElement(".tabs-option__favorites");
 
+    this.mainElement =this.getElement("main");
     // ============
     // contact list
     // ============
@@ -186,7 +186,50 @@ class View {
     });
   }
 
+  // ===============
   // EVENT LISTENERS
+  // ===============
+  onWindowResize() {
+    window.addEventListener("resize", () => {
+      // Resize from small device to large device
+      if (mqMinWidth640px.matches) {
+        // ? probably don't need to address editBtnAtContactViewPage visibility here.
+        // Use via CSS styles
+        this.editBtnAtContactViewPage.classList.remove("hidden");
+
+        if (this.addSmallBtn.classList.contains("hidden")) {
+          this.addSmallBtn.classList.add("hidden");
+        }
+
+        // SCENARIO #1: at Contact List page
+        if (this.contactViewWrapper.classList.contains("hidden")) {
+          this.contactViewWrapper.classList.remove("hidden");
+
+          // * Hotfix side effects if window expaned
+          if (this.editBtnAtContactViewPage.classList.contains("hidden")) {
+            this.editBtnAtContactViewPage.classList.remove("hidden");
+          }
+        }
+
+        // SCENARIO #2: at Contact View page
+        if (this.contactListWrapper.classList.contains("hidden")) {
+          this.tabsContainer.classList.remove("hidden");
+          this.editBtnAtHeader.classList.add("hidden");
+          this.logo.classList.remove("hidden");
+          this.backBtn.classList.add("hidden");
+          this.contactListWrapper.classList.remove("hidden");
+        }
+      }
+
+      // Resize from large device to small device
+      if (mqMaxWidth639px.matches) {
+        if (!(this.contactViewWrapper.classList.contains("hidden"))) {
+          this.contactViewWrapper.classList.add("hidden");
+        }
+      }
+    });
+  }
+
   // Display "Favorites" list
   onChangeToFavoriteTabs() {
     this.tabsOptionsFavorites.addEventListener("click", (e) => {
@@ -195,7 +238,8 @@ class View {
       this.tabsOptionsAllContacts.classList.remove("selected");
       this.tabsOptionsAllContacts.firstElementChild.firstElementChild.classList.remove("text--semi-bold");
       this.tabsOptionsFavorites.classList.add("selected");
-      this.tabsOptionsFavorites.firstElementChild.firstElementChild.classList.add("text--semi-bold");
+      this.tabsOptionsFavorites.firstElementChild.lastElementChild.classList.add("text--semi-bold");
+      this.tabsOptionsFavorites.firstElementChild.firstElementChild.classList.toggle("text--semi-bold");
 
       e.preventDefault();
     });
@@ -209,7 +253,9 @@ class View {
       this.tabsOptionsFavorites.classList.remove("selected");
       this.tabsOptionsFavorites.firstElementChild.firstElementChild.classList.remove("text--semi-bold");
       this.tabsOptionsAllContacts.classList.add("selected");
-      this.tabsOptionsAllContacts.firstElementChild.firstElementChild.classList.add("text--semi-bold");
+      this.tabsOptionsAllContacts.firstElementChild.lastElementChild.classList.add("text--semi-bold");
+      this.tabsOptionsFavorites.firstElementChild.firstElementChild.classList.toggle("text--semi-bold");
+
 
       e.preventDefault();
     });
@@ -227,6 +273,7 @@ class View {
     });
   }
 
+  // Display selected contact details on to Contact Page
   onDisplayContactView(contactData, setCurrentIdHandler) {
     const contactListWrapperAll = document.querySelectorAll(".btn__wrapper--view-contact");
     contactListWrapperAll.forEach((contactElement) => {
@@ -236,6 +283,10 @@ class View {
           this.displayContactView(contactData, targetContactId, setCurrentIdHandler);
         }
 
+        // Set up module form
+        // on "click" event for "edit button"
+        this.onOpenEditContactForm(contactData, targetContactId);
+
         e.preventDefault();
       });
     });
@@ -243,11 +294,9 @@ class View {
 
   // Set up contact view page
   displayContactView(contactData, targetContactId, setCurrentIdHandler) {
-    // TODO
-    // if on larger screen "back" button should not be visible
-
     this.contactViewWrapper.classList.remove("hidden");
 
+    // At Small Devices
     // change header options
     // hide everything else
     if (mqMaxWidth639px.matches) {
@@ -255,14 +304,38 @@ class View {
       this.tabsContainer.classList.add("hidden");
       this.logo.classList.add("hidden");
       this.addSmallBtn.classList.add("hidden");
-      this.editBtn.classList.remove("hidden");
+      this.editBtnAtHeader.classList.remove("hidden");
       this.backBtn.classList.remove("hidden");
+      // * Hotfix side effects if window expaned
+      if (!(this.editBtnAtContactViewPage.classList.contains("hidden"))){
+        this.editBtnAtContactViewPage.classList.add("hidden");
+      }
     }
 
-    // ! WIP
-    // if (this.deleteBtn.classList.contains("hidden")) {}
-    // ! <<
+    // At Large Devices
+    if (mqMinWidth640px.matches) {
+      this.editBtnAtContactViewPage.classList.remove("hidden");
+      // * Hotfix side effects if window expaned
+      if (!(this.editBtnAtHeader.classList.contains("hidden"))){
+        this.editBtnAtHeader.classList.add("hidden");
+        this.backBtn.classList.add("hidden");
+      }
+      if (!(this.contactViewWrapper.classList.contains("hidden"))) {
+        this.mainElement.style.justifyContent = "center";
+      } else {
+        this.mainElement.style.justifyContent = "flex-start";
+      }
+    }
 
+    this.renderContactView(contactData, targetContactId);
+
+    const [targetContactData] = contactData.filter((contact) => contact.id == targetContactId);
+    // Set 'currentId' for Model
+    setCurrentIdHandler(targetContactData.id);
+  }
+
+  // Render Contact Page inputs
+  renderContactView(contactData, targetContactId) {
     // Get target contact data
     const [targetContactData] = contactData.filter((contact) => contact.id == targetContactId);
 
@@ -270,29 +343,22 @@ class View {
     this.contactViewName.textContent = targetContactData.name;
     this.contactViewEmail.textContent = targetContactData.email;
     this.contactViewPhone.textContent = targetContactData.phone;
-
-    // Set 'currentId' for Model
-    setCurrentIdHandler(targetContactData.id);
   }
 
   onBackBtn() {
     this.backBtn.addEventListener("click", () => {
-      // TODO
-      // if on larger screen "back" button should not be visible
-
-      // Reverse effect
+      // go back to contact list
       this.contactViewWrapper.classList.add("hidden");
 
       // change header options
       // hide everything else
-      if (mqMaxWidth639px.matches) {
-        this.contactListWrapper.classList.remove("hidden");
-        this.tabsContainer.classList.remove("hidden");
-        this.logo.classList.remove("hidden");
-        this.addSmallBtn.classList.remove("hidden");
-        this.editBtn.classList.add("hidden");
-        this.backBtn.classList.add("hidden");
-      }
+      this.contactListWrapper.classList.remove("hidden");
+      this.tabsContainer.classList.remove("hidden");
+      this.logo.classList.remove("hidden");
+      this.addSmallBtn.classList.remove("hidden");
+      this.editBtnAtHeader.classList.add("hidden");
+      this.backBtn.classList.add("hidden");
+
     });
   }
 
@@ -305,7 +371,7 @@ class View {
         this.closeModule();
 
         // * On first contact created,
-        // dependending on what tabs you're on:
+        // depending on what tabs you're on:
         // - SCENARIO #1: on tabs "All Contacts"
         //    Remove placeholder
         // display "All Contacts" list
@@ -393,22 +459,31 @@ class View {
   }
 
   onOpenAddContactForm() {
-    this.addSmallBtn.addEventListener("click", () => {
-      this.openModule();
+    const addBtnAll = [this.addSmallBtn, this.addLargeBtn];
+    addBtnAll.forEach((addBtn) => {
+      addBtn.addEventListener("click", () => {
+        this.openModule();
+        if (this.saveBtn.classList.contains("hidden")) {
+          this.updateBtn.classList.add("hidden");
+          this.deleteBtnContainer.classList.add("hidden");
+          this.saveBtn.classList.remove("hidden");
+          this.moduleTitle.firstElementChild.textContent = "Add Contact";
+        }
+      });
     });
   }
 
   onCloseAddContactForm() {
     this.cancelBtn.addEventListener("click", () => {
       this.closeModule();
+      this._resetInput();
     });
   }
 
   closeModule() {
-    this.moduleWrapper.classList.remove("on-screen");
     this.moduleWrapper.classList.add("off-screen");
     if (mqMinWidth640px.matches) {
-      if (this.moduleOverlay.classList.contains("hidden")) {
+      if (!(this.moduleOverlay.classList.contains("hidden"))) {
         this.moduleOverlay.classList.add("hidden");
       }
     }
@@ -416,12 +491,79 @@ class View {
 
   openModule() {
     this.moduleWrapper.classList.remove("off-screen");
-    this.moduleWrapper.classList.add("on-screen");
     if (mqMinWidth640px.matches) {
       if (this.moduleOverlay.classList.contains("hidden")) {
         this.moduleOverlay.classList.remove("hidden");
       }
     }
+  }
+
+  onOpenEditContactForm(contactData, currentContactId) {
+    const [currentContact] = contactData.filter((contact) => contact.id == currentContactId);
+    const editBtn = [this.editBtnAtHeader, this.editBtnAtContactViewPage];
+
+    editBtn.forEach((currentEditBtn) => {
+      currentEditBtn.addEventListener("click", (e) => {
+        // Set up UI
+        this.openModule();
+        if (this.updateBtn.classList.contains("hidden")) {
+          this.setEditContactForm(currentContact);
+        }
+        // At Small Devices
+        if(mqMaxWidth639px) {
+          this.setEditContactForm(currentContact);
+        }
+        // At Large Devices
+        if(mqMinWidth640px) {
+          this.setEditContactForm(currentContact);
+        }
+
+        e.preventDefault();
+      });
+    });
+  }
+
+  setEditContactForm(currentContact) {
+    // Set up UI
+    this.updateBtn.classList.remove("hidden");
+    this.deleteBtnContainer.classList.remove("hidden");
+    this.saveBtn.classList.add("hidden");
+    this.moduleTitle.firstElementChild.textContent = "Edit Contact";
+    this.setFormInputs(currentContact);
+  }
+
+  setFormInputs(currentContact) {
+    // Set up inputs
+    this.moduleNameInput.value = currentContact.name;
+    this.moduleEmailInput.value = currentContact.email;
+    this.modulePhoneInput.value = currentContact.phone;
+  }
+
+  // Get current Id set from opening Contact View
+  onUpdateContact(updateContactHandler) {
+    this.updateBtn.addEventListener("click", (e) => {
+
+      // Validate input values
+      if (this.validateInputs(this._moduleNameInputText, this._moduleEmailInputText, this._modulePhoneInputText)) {
+        updateContactHandler(this._moduleNameInputText, this._moduleEmailInputText, this._modulePhoneInputText);
+
+        this.manageError(this._moduleNameInputText, this._moduleEmailInputText,this._modulePhoneInputText);
+        this._resetInput();
+        this.closeModule();
+      } else {
+        this.manageError(this._moduleNameInputText, this._moduleEmailInputText, this._modulePhoneInputText);
+      }
+
+      e.preventDefault();
+    });
+  }
+
+  onDeleteBtn() {
+    // TODO
+    // get id
+    // delete contact
+    // close module
+    // re render DOM
   }
 }
 

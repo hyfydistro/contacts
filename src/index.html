@@ -21,6 +21,7 @@
 </head>
 
 <body>
+  <div class="app">
   <header>
     <span class="logo-title">
       <i class="fas fa-address-book fa-flip-horizontal"></i>
@@ -43,10 +44,10 @@
     </button>
   </header>
 
-  <!-- TODO add media query - when it should be hidden or not -->
   <!-- Add button (for Medium to Large Devices) -->
-  <div class="options-container hidden">
-    <button class="btn" type="button">
+  <div class="options-container">
+    <button class="btn__block-contained--add-form" type="button">
+      <i class="fas fa-plus"></i>
       <h3>Add New Contact</h3>
     </button>
   </div>
@@ -59,18 +60,18 @@
     </a>
     <a class="tabs-option tabs-option__favorites" href="#">
       <span class="tabs-option__inner-wrapper">
-        <i class="fas fa-star"></i>
+        <i class="fas fa-star text--semi-bold"></i>
         <h3>Favorites</h3>
       </span>
     </a>
   </div>
 
   <main>
-    <section class="contact-container">
+    <section class="contact-container fade-up">
       <div class="contact-paceholder__container">
-        <img src="#" alt="" />
-        <a href="#">
-          <p>No contact available. Add contact?</p>
+        <img src="#" alt="" class="contact-paceholder__image" />
+        <a href="#" class="contact-paceholder__text-wrapper">
+          <p class="contact-paceholder__text">No contact available. Add contact?</p>
         </a>
       </div>
 
@@ -96,8 +97,15 @@
       <div class="contact-list__container--favourites hidden"></div>
     </section>
 
+    <!-- Contact View Page -->
     <section class="contact-view__container hidden">
-      <h2 class="contact-view__name-input--text">John Doe</h2>
+      <!-- Edit button -->
+      <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
+        <i class="fas fa-edit"></i>
+        <h3>Edit</h3>
+      </button>
+
+      <h2 class="contact-view__name-input--text">(name)</h2>
 
       <div class="contact-view__email-container">
         <div class="contact-view__email-label">
@@ -107,7 +115,7 @@
           </span>
         </div>
         <div class="contact-view__email-input">
-          <p class="contact-view__email-input--text" type="text">johndoe@example.com</p>
+          <p class="contact-view__email-input--text" type="text"></p>
         </div>
       </div>
 
@@ -119,26 +127,30 @@
           </span>
         </div>
         <div class="contact-view__phone-input">
-          <p class="contact-view__view__phone-input--text" type="text">555-555-1234</p>
+          <p class="contact-view__view__phone-input--text" type="text"></p>
         </div>
       </div>
       </div>
     </section>
   </main>
 
+  <!-- Module -->
   <div class="module__wrapper off-screen">
     <div class="module module--shadow">
       <div class="module-header">
+        <!-- Cancel button -->
         <button class="btn__text btn__text--cancel-form">
           <h3>Cancel</h3>
         </button>
+        <!-- Module Title -->
         <span class="module__title">
           <h2>Add Contact</h2>
-          <h2 class="hidden">Add Edit</h2>
         </span>
+        <!-- Save button -->
         <button class="btn__text btn__text--save-form" type="submit" form="module-form"><i class="fas fa-check"></i>
           <h3>Save</h3>
         </button>
+        <!-- Update button -->
         <button class="btn__text btn__text--update-form hidden"><i class="fas fa-check"></i>
           <h3>Update</h3>
         </button>
@@ -215,6 +227,7 @@
         </div>
 
 
+        <!-- Delete button -->
         <div class="module-form__button-container hidden">
           <button class="btn__block btn__block--error btn__block--delete-form" type="button">
             <h3>Delete Contact</h3>
@@ -225,6 +238,7 @@
   </div>
 
   <div class="module__overlay hidden"></div>
+</div>
 
   <noscript>You need to enable JavaScript to run this app.</noscript>
 </body>

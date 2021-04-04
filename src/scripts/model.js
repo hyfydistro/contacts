@@ -47,33 +47,45 @@ class Model {
     this.commitToDataBase(this.contactlist);
   }
 
-  // Map through all todos, and replace the text of the todo with the specified id
-  // ? rename to updateContact
-  editContact(id, updatedName, updatedEmail, updatedPhone = "") {
-    // this.contactlist = this.contactlist.map(contact => {
-    //   return contact.id === id ? { id: contact.id, name: updatedName, email: updatedEmail, phone: updatedPhone };
-    // })
+  editContact(targetContactId, updatedName, updatedEmail, updatedPhone = "") {
+    const UpdatedContactList = this.contactlist.map((currentContact) => {
+      if (currentContact.id == targetContactId) {
+        return ({
+          id: currentContact.id,
+          name: updatedName,
+          email: updatedEmail,
+          phone: updatedPhone,
+          favorite: currentContact.favorite
+        });
+      }
+
+      return currentContact;
+    });
+
+    // Update State
+    this.contactlist = UpdatedContactList;
+    // Update LS
+    this.commitToDataBase(this.contactlist);
   }
 
+  // TODO create delete list
   // Filter a contact out of array by id
-  deleteContact(id) {
-    // this.contactlist = this.contactlist.filter((contact) => contact.id !== id);
-  }
+  // deleteContact(id) {
+  //   // this.contactlist = this.contactlist.filter((contact) => contact.id !== id);
+  // }
 
   // Toggle the "favorite" boolean on the targeted contact
   // - favorite
   updateFavorite(targetContactId) {
     const UpdatedContactList = this.contactlist.map((currentContact) => {
       if (currentContact.id == targetContactId) {
-        const foo = {
+        return({
           id: currentContact.id,
           name: currentContact.name,
           email: currentContact.email,
           phone: currentContact.phone,
           favorite: !currentContact.favorite
-        };
-
-        return foo;
+        });
       }
 
       return currentContact;

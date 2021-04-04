@@ -10,7 +10,6 @@ import "./main.styles.scss";
 // =======
 // Scripts
 // =======
-// ! Work in Prorgress...
 // libs
 import "./scripts/libs/mediaquery.js";
 import "./scripts/libs/validatePhoneNumber.js";
@@ -23,5 +22,3 @@ import "./scripts/controller.js";
 import "./scripts/app.js";
 
 console.log("initialising...");
-
-console.log("finish initialising...");

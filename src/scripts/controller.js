@@ -9,6 +9,7 @@ class Controller {
 
     // Initial load
     this.onInitialLoad(this.model.contactlist);
+    this.view.onWindowResize();
 
     this.onContactListChanged(this.model.contactlist);
 
@@ -17,10 +18,12 @@ class Controller {
     this.view.onChangeToAllContactsTabs();
     this.view.onOpenAddContactForm();
     this.view.onCloseAddContactForm();
-    this.view.onDisplayContactView(this.model.contactlist, this.setCurrentId);
+    this.view.onDisplayContactView(this.model.contactlist, this.setCurrentId, this.handleUpdateContact);
     this.view.onBackBtn();
     this.view.onToggleFavorite(this.handleToggleFavorite);
     this.view.onSaveContact(this.handleAddContact, this.model.contactlist);
+    this.view.onUpdateContact(this.handleUpdateContact);
+
   }
 
   onInitialLoad = (contactList) => {
@@ -30,18 +33,16 @@ class Controller {
 
     // Add event
     this.view.displayContactList(contactList);
+    // add "resize" event
   }
 
+  // Re-render lists
   onContactListChanged = (contactList) => {
     // Re-render UI
     this.view.renderContactList(contactList);
     this.view.renderFavoriteList(contactList);
 
     this.view.onDisplayContactView(this.model.contactlist, this.setCurrentId);
-  }
-
-  setCurrentId = (id) => {
-    this.model.setCurrentId(id);
   }
 
   handleAddContact = (name, email, phone) => {
@@ -54,12 +55,24 @@ class Controller {
 
   handleToggleFavorite = (targetContactId) => {
     this.model.updateFavorite(targetContactId);
-
-    // Re-render UI
     this.onContactListChanged(this.model.contactlist);
 
     // Add event
     this.view.onToggleFavorite(this.handleToggleFavorite);
+  }
+
+  handleUpdateContact = (updatedName, updatedEmail, updatedPhone) => {
+    this.model.editContact(this.model.currentId, updatedName, updatedEmail, updatedPhone);
+    this.onContactListChanged(this.model.contactlist);
+    this.view.renderContactView(this.model.contactlist, this.model.currentId);
+
+    // Add event
+    this.view.onToggleFavorite(this.handleToggleFavorite);
+    this.view.onOpenEditContactForm(this.model.contactlist, this.model.currentId);
+  }
+
+  setCurrentId = (id) => {
+    this.model.setCurrentId(id);
   }
 }
 
