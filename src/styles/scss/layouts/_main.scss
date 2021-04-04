@@ -1,7 +1,38 @@
+@use "../base";
+@use "../utils";
+
 // ====
 // MAIN
 // ====
 
-main {
+body {
+    background: base.$cool-grey-10;
+    overflow: hidden;
+}
+
+.app {
     overflow-y: scroll;
+    display: block;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    max-width: 992px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    &:nth-child(1) {flex-grow: 1;}
+    &:nth-child(2) {flex-grow: 1;}
+    @include utils.atMediumDevices {
+        justify-content: flex-start;
+    }
+    @include utils.atSmallDevices {
+        display: block;
+        overflow-x: hidden;
+    }
 }
