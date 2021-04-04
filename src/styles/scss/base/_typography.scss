@@ -85,7 +85,6 @@ html {
         font-family: $primary-fontface;
         font-weight: 500;
         line-height: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio} * 1.1);
-        text-transform: uppercase;
     }
     h2 {
         font-size: calc(1rem * #{$desktop-header-text-scale-ratio} * #{$desktop-header-text-scale-ratio});
