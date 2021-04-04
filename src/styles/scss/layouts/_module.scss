@@ -5,18 +5,16 @@
 // MODULE
 // ======
 
-// TODO
-// Add slidein effect with script
-
 body {
   overflow: auto;
 }
 
 .module__wrapper {
-  display: block;
+  background-color: #ffffff;
 }
 
 .module {
+  display: block;
   position: absolute;
   width: 100%;
   max-width: 768px;
@@ -38,9 +36,10 @@ body {
 }
 
 .module--shadow {
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
+  @include utils.atSmallDevices {
+    box-shadow: none;
+  }
 }
 
 .module-header {
@@ -53,11 +52,7 @@ body {
   @include utils.atSmallDevices {
     height: 64px;
     background: rgb(204, 247, 255);
-    background: linear-gradient(
-      90deg,
-      base.$sky-blue-10 0%,
-      base.$sky-blue-05 100%
-    );
+    background: linear-gradient(90deg, base.$sky-blue-10 0%, base.$sky-blue-05 100%);
     margin-bottom: base.$mobile-space-lv-1;
     @include base.mobile-padding-preset;
   }
@@ -142,17 +137,6 @@ body {
   display: none;
 }
 
-// * Used with script
-.off-screen {
-  position: fixed;
-  left: 999px;
-}
-
-.on-screen {
-  position: absolute;
-  top: 0;
-}
-
 .module-form__name-error,
 .module-form__email-error,
 .module-form__phone-error {
@@ -215,4 +199,30 @@ label[for="name"] {
 .field:focus + .slide-line .line-one {
   width: 100%;
   transition: width 250ms ease-in-out;
+}
+
+// # fade-in
+// Description: module fade in from above
+// * Used with script
+.module__wrapper {
+  transition: all 0.2s linear;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include utils.atSmallDevices {
+    transition: all 0.4s linear;
+  }
+}
+
+.off-screen {
+  position: fixed;
+  transform: translateY(-100px);
+  opacity: 0;
+  pointer-events: none;
+  @include utils.atSmallDevices {
+    transform: translateX(999px);
+    opacity: 1;
+  }
 }
