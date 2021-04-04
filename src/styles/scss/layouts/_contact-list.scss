@@ -5,6 +5,37 @@
 // CONTACT-LIST
 // ============
 
+.contact-list__container--favourites,
+.contact-paceholder__container,
+.contact-list__container {
+  max-width: 316.8px;
+  width: 316.8px;
+  @include utils.atMediumDevices {
+      max-width: 384px;
+      width: 50vw;
+  }
+}
+
+.contact-list__container--favourites,
+.contact-list__container {
+  @include utils.atSmallDevices {
+    display: inline;
+  }
+}
+
+.contact-paceholder__container {
+  text-align: center;
+  margin: 0 auto;
+  padding: {
+    top: base.$mobile-space-lv-2;
+    bottom: base.$mobile-space-lv-2;
+  };
+  @include base.tablet-padding-preset;
+  @include utils.atSmallDevices {
+    @include base.mobile-padding-preset;
+  }
+}
+
 .contact-list {
   display: flex;
   align-items: center;
@@ -126,21 +157,16 @@
   color: base.$favourites-icon-color !important;
 }
 
-// ! Font Awesome 5 won't allow 'transform scale' property
-// Report issued until further ado
 @keyframes pop {
   0% {
-    // transform: scale(0);
     font-size: 0px;
   }
 
   90% {
-    // transform: scale(1.3);
     font-size: 41.6px;
   }
 
   100% {
-    // transform: scale(1);
     font-size: 32px;
   }
 }
@@ -148,18 +174,31 @@
 @include utils.atSmallDevices {
   @keyframes pop {
     0% {
-      // transform: scale(0);
       font-size: 0px;
     }
 
     90% {
-      // transform: scale(1.3);
       font-size: 36.4px;
     }
 
     100% {
-      // transform: scale(1);
       font-size: 28px;
     }
+  }
+}
+
+// # fade-down
+.contact-container.fade-up {
+  animation: fade-up 0.4s ease;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
