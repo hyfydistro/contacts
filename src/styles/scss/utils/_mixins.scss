@@ -10,7 +10,7 @@
 // $XLARGE: 1024px;
 
 // TABLET
-// $MEDIUM: 768px;
+$MEDIUM: 768px;
 
 // MOBILE
 $SMALL: 641px;
@@ -20,16 +20,18 @@ $SMALL: 641px;
 $MAX-WIDTH: 992px;
 $MIN-WIDTH: 375px;
 
-@mixin atLargeDevices(){
+@mixin atLargeDevices() {
     @media all and (min-width: $MAX-WIDTH){
         @content;
     }
 }
-// @mixin atMediumDevices(){
-//     @media all and (min-width: $MEDIUM){
-//         @content;
-//     }
-// }
+
+@mixin atMediumDevices() {
+    @media all and (max-width: $MEDIUM){
+        @content;
+    }
+}
+
 @mixin atSmallDevices(){
     @media all and (max-width: $SMALL){
         @content;
