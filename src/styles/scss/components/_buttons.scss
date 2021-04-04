@@ -18,6 +18,14 @@
   }
 }
 
+.btn__text {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
 // # "Delete Contact" button
 .module-form__button-container {
   width: 338px;
@@ -43,3 +51,122 @@
     background: base.$error-btn-bg-color;
     color: base.$rose-red-10;
 }
+
+
+// # Edit Button
+// Edit button inside contact view page
+.contact-view__container > .btn__text--edit-form {
+  float: right;
+  padding: base.$desktop-base-font-size;
+  @include utils.atSmallDevices {
+    display: none;
+  }
+}
+
+// * hotfix alignment w/ edit button (inside contact view page)
+.contact-view__name-input--text {
+  clear: both;
+}
+
+// TODO
+// edit button inside header
+// header > .btn__text--edit-form {
+//   display: hidden;
+//   @include utils.atSmallDevices {
+//     display: inline-block;
+//   }
+// }
+
+
+// Add visibility for Edit Button here
+
+// # Add Button
+// Large "Add New Contact button
+.options-container {
+  display: flex;
+  margin-top: base.$desktop-space-lv-1;
+  margin-left: 32px;
+  @include utils.atSmallDevices {
+    display: none;
+  }
+}
+
+.btn__block-contained--add-form {
+  display: flex;
+  align-items: center;
+  padding: base.$desktop-base-font-size calc(#{base.$desktop-base-font-size} * 2);
+  color: base.$text-color;
+  background: base.$add-btn-bg-color;
+  border-radius: 999px;
+  outline: none;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.btn__block-contained--add-form:focus,
+.btn__block-contained--add-form:active,
+.btn__block-contained--add-form:hover {
+  background: base.$sky-blue-20;
+}
+
+.btn__block-contained--add-form:hover {
+  position: relative;
+  transform: translateY(-7px);
+}
+
+// ?
+// Small "Add" button
+.btn__text--add-form {
+  display: none;
+  @include utils.atSmallDevices {
+    display: inline-block;
+  }
+}
+
+
+
+// ==========
+// ANIMATIONS
+// ==========
+// * Effects Description: color change slide in
+.color-slide {
+  background: linear-gradient(
+    to right,
+    base.$cool-grey-60,
+    base.$cool-grey-60 50%,
+    base.$text-color 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+// ELEMENT STATE
+.color-slide:hover {
+    background-position: 0 100%;
+}
+
+.btn__text:active .fa-edit,
+.btn__text:active .fa-plus,
+.btn__text:active h3 {
+    background-color: base.$cool-grey-20;
+    background-clip: text;
+}
+
+// * Effects Description: Ripple effect
+// .ripple {
+//   background-position: center;
+//   transition: background 0.8s;
+// }
+// .ripple:hover {
+//   background: base.$sky-blue-05
+//     radial-gradient(circle, transparent 1%, base.$sky-blue-10 1%) center/15000%;
+// }
+// .ripple:active {
+//   background-color: transparent;
+//   background-size: 100%;
+//   transition: background 0s;
+// }
