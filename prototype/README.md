@@ -1,6 +1,6 @@
 # Prototype
 
-`Contacts - Prototype.v1.0.psd` contains wireframes and some user interface designs.
+`Contacts - Prototype.v1.0.png` contains wireframes and some user interface designs.
 
 ## Color Variants
 
