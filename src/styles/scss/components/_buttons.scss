@@ -155,18 +155,3 @@
     background-color: base.$cool-grey-20;
     background-clip: text;
 }
-
-// * Effects Description: Ripple effect
-// .ripple {
-//   background-position: center;
-//   transition: background 0.8s;
-// }
-// .ripple:hover {
-//   background: base.$sky-blue-05
-//     radial-gradient(circle, transparent 1%, base.$sky-blue-10 1%) center/15000%;
-// }
-// .ripple:active {
-//   background-color: transparent;
-//   background-size: 100%;
-//   transition: background 0s;
-// }

@@ -156,20 +156,17 @@ html {
             font-size: $mobile-base-font-size;
         }
         h1 {
-            // font-size: calc(1rem * #{$mobile-header-text-scale-ratio} * #{$mobile-header-text-scale-ratio} * #{$mobile-header-text-scale-ratio});
             font-size: 20px;
             font-weight: 500;
             text-transform: none;
             line-height: calc(1rem * #{$mobile-body-text-scale-ratio} * #{$mobile-body-text-scale-ratio} * #{$mobile-body-text-scale-ratio} * 1.1);
         }
         h2 {
-            // font-size: calc(1rem * #{$mobile-header-text-scale-ratio} * #{$mobile-header-text-scale-ratio});
             font-size: 20px;
             font-weight: normal;
             line-height: calc(1rem * #{$mobile-body-text-scale-ratio} * #{$mobile-body-text-scale-ratio} * 1.1);
         }
         h3 {
-            // font-size: calc(1rem * #{$mobile-header-text-scale-ratio});
             font-size: 16px;
             font-weight: normal;
         }
