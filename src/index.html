@@ -52,6 +52,7 @@
     </button>
   </div>
 
+  <!-- Tab Options -->
   <div class="tabs-container">
     <a class="tabs-option tabs-option__all-contacts selected" href="#">
       <span class="tabs-option__inner-wrapper">
@@ -75,9 +76,9 @@
         </a>
       </div>
 
+      <!-- "All Contact" List -->
       <div class="contact-list__container hidden">
         <!-- Sample of a contact element -->
-
         <!-- <div class="contact-list">
           <label class="contact-list__icon--favorite">
             <input type="checkbox" id="checkboxID">
@@ -90,23 +91,24 @@
             <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
           </a>
         </div> -->
-
       </div>
 
-      <!-- Favorites List -->
+      <!-- "Favorites" List -->
       <div class="contact-list__container--favourites hidden"></div>
     </section>
 
     <!-- Contact View Page -->
     <section class="contact-view__container hidden">
-      <!-- Edit button -->
+      <!-- Edit button (for Medium to Large Devices) -->
       <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
         <i class="fas fa-edit"></i>
         <h3>Edit</h3>
       </button>
 
+      <!-- Contact View Page: Name -->
       <h2 class="contact-view__name-input--text">(name)</h2>
 
+      <!-- Contact View Page: Email -->
       <div class="contact-view__email-container">
         <div class="contact-view__email-label">
           <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
@@ -119,6 +121,7 @@
         </div>
       </div>
 
+      <!-- Contact View Page: Phone -->
       <div class="contact-view__phone-container">
         <div class="contact-view__phone-label">
           <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
@@ -139,7 +142,7 @@
     <div class="module module--shadow">
       <div class="module-header">
         <!-- Cancel button -->
-        <button class="btn__text btn__text--cancel-form">
+        <button class="btn__text btn__text--cancel-form color-slide">
           <h3>Cancel</h3>
         </button>
         <!-- Module Title -->
@@ -147,17 +150,18 @@
           <h2>Add Contact</h2>
         </span>
         <!-- Save button -->
-        <button class="btn__text btn__text--save-form" type="submit" form="module-form"><i class="fas fa-check"></i>
+        <button class="btn__text btn__text--save-form color-slide" type="submit" form="module-form"><i class="fas fa-check"></i>
           <h3>Save</h3>
         </button>
         <!-- Update button -->
-        <button class="btn__text btn__text--update-form hidden"><i class="fas fa-check"></i>
+        <button class="btn__text btn__text--update-form color-slide hidden"><i class="fas fa-check"></i>
           <h3>Update</h3>
         </button>
       </div>
 
       <form class="module-form" id="module-form" action="javascript:myFunction(); return false;">
         <div class="module-form__fields">
+          <!-- Module: Name -->
           <div class="module-form__name-container">
             <div class="module-form__name-label">
               <span class="module-form__name-label--icon"><i class="fas fa-user"></i></span>
@@ -180,6 +184,7 @@
             </div>
           </div>
 
+          <!-- Module: Email -->
           <div class="module-form__email-container">
             <div class="module-form__email-label">
               <span class="module-form__email-label--icon"><i class="far fa-envelope"></i></span>
@@ -203,6 +208,7 @@
             </div>
           </div>
 
+          <!-- Module: Phone -->
           <div class="module-form__phone-container">
             <div class="module-form__phone-label">
               <span class="module-form__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
