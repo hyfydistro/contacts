@@ -39,6 +39,8 @@
   "ignorePatterns": [
     "prettier.config.js",
     "babel.config.js",
-    "postcss.config.js"
+    "postcss.config.js",
+    "jest.config.js",
+    "jest.setup.js"
   ]
 }
