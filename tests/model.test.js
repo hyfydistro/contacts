@@ -10,11 +10,7 @@ const sampleData = [{
   favorite: false
 }]
 
-// TODO
-// write test cases for following "todo"
-
 const model = new Model()
-// model.addContact("john", "john@example.com", "555-555-1234", false);
 model.contactlist = sampleData
 const modelLength = model.contactlist.length
 
@@ -69,6 +65,4 @@ describe("when data is added", () => {
 })
 
 
-// ! WIP
-// use `describe`
 test.todo("if methods are called")
