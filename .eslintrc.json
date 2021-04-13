@@ -28,7 +28,10 @@
     "eqeqeq": "off",
     "class-methods-use-this": "off",
     "no-useless-escape": "off",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "array-element-newline": ["error", {
+      "ArrayExpression": "consistent"
+  }]
   },
   "overrides": [
     {
@@ -41,6 +44,6 @@
     "babel.config.js",
     "postcss.config.js",
     "jest.config.js",
-    "jest.setup.js"
+    "jest.setup.*.js"
   ]
 }
