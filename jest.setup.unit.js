@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
@@ -9,3 +11,5 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn()
   }))
 });
+
+// jest.setTimeout(50000);
