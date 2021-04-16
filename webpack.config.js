@@ -8,10 +8,10 @@ const mode = process.env.NODE_ENV === "production" ? "production" : "development
 
 // Temporary workaround for "browserslist" bug that is being patched in the near future
 // Bug: does not persist with webpack live server
-const target = process.env.NODE.ENV === "production" ? "browserslist" : "web";
+const target = process.env.NODE_ENV === "production" ? "browserslist" : "web";
 
 // * Runs slow for setup, then fast
-const sourcemapMode = process.env.NODE.ENV === "production" ? "source-map" : "eval-source-map";
+const sourcemapMode = process.env.NODE_ENV === "production" ? "source-map" : "eval-source-map";
 
 module.exports = {
   mode: mode,
@@ -69,7 +69,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "Contacts Web App",
-      template: "./src/index.html",
+      template: path.resolve(__dirname, "src", "index.html"),
       inject: "body",
     })
   ],
