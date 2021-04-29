@@ -1,0 +1,86 @@
+@use "base";
+@use "utils";
+
+// =========
+// SKELETONS
+// =========
+// ! WIP - see below 'TODO'
+
+.loading {
+  background-color: #E2E2E2 !important;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+    animation: loading 1.5s infinite;
+  }
+}
+
+.logo__header--lazy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+// Similar as original class!
+.btn__block-contained--add-form--lazy {
+  display: flex;
+  align-items: center;
+  padding: base.$desktop-base-font-size calc(#{base.$desktop-base-font-size} * 2);
+  background: base.$add-btn-bg-color;
+  border-radius: 999px;
+  outline: none;
+}
+
+// Same as original class!
+.tabs-option__all-contacts--lazy,
+.tabs-option__favorites--lazy {
+  display: inline-block;
+  width: 175px;
+  height: 66px;
+  margin-right: base.$desktop-space-lv-half;
+  @include utils.atSmallDevices {
+    width: 131px;
+    height: 57px;
+    margin-right: base.$mobile-space-lv-half;
+  }
+}
+
+.contact-placeholder__text--lazy {
+  height: 20px;
+}
+
+// TODO
+// - could address the text instead of the container
+// i.e. rewrite in script 'app.js' and target all the text instead (?)
+.contact-view__container--lazy {
+    max-width: 633.6px;
+    width: 633.6px;
+    @include utils.atMediumDevices {
+        margin-left: 0;
+    }
+    @include utils.atSmallDevices {
+        top: 64px; // * Height of header
+        transition: all 0.4s linear;
+        opacity: 1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: base.$z-index-1--followUpVisibility;
+        width: 100%;
+        border: none;
+        @include base.mobile-padding-preset;
+    }
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}

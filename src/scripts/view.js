@@ -30,7 +30,7 @@ class View {
     // ============
     this.contactListWrapper = this.getElement(".contact-container");
     this.contactList = this.getElement(".contact-list__container");
-    this.contactListPlaceholder = this.getElement(".contact-paceholder__container");
+    this.contactListPlaceholder = this.getElement(".contact-placeholder__container");
     this.contactListFavorites = this.getElement(".contact-list__container--favourites");
 
     // =================

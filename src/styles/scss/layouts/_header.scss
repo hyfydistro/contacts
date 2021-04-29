@@ -5,7 +5,7 @@
 // HEADER
 // ======
 
-header {
+.logo__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,8 +19,8 @@ header {
   }
 }
 
-header h1,
-header h3 {
+.logo__header h1,
+.logo__header h3 {
   display: inline-block;
   color: base.$text-color;
 }

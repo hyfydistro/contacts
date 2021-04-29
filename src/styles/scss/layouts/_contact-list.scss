@@ -6,7 +6,7 @@
 // ============
 
 .contact-list__container--favourites,
-.contact-paceholder__container,
+.contact-placeholder__container,
 .contact-list__container {
   max-width: 316.8px;
   width: 316.8px;
@@ -23,7 +23,7 @@
   }
 }
 
-.contact-paceholder__container {
+.contact-placeholder__container {
   text-align: center;
   margin: 0 auto;
   padding: {
@@ -34,6 +34,10 @@
   @include utils.atSmallDevices {
     @include base.mobile-padding-preset;
   }
+}
+
+.contact-placeholder__text{
+  color: base.$text-color;
 }
 
 .contact-list {

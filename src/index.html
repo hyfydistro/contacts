@@ -22,64 +22,71 @@
 
 <body>
   <div class="app">
-  <header>
-    <span class="logo-title">
-      <i class="fas fa-address-book fa-flip-horizontal"></i>
-      <h1>Contacts</h1>
-    </span>
-    <!-- Back button (for Small Devices) -->
-    <button class="btn__text btn__text--back-form color-slide hidden" type="button">
-      <h3>Back</h3>
-    </button>
-
-    <!-- Add button -->
-    <button class="btn__text btn__text--add-form color-slide" type="button">
-      <i class="fas fa-plus"></i>
-      <h3>Add</h3>
-    </button>
-    <!-- Edit button -->
-    <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
-      <i class="fas fa-edit"></i>
-      <h3>Edit</h3>
-    </button>
-  </header>
-
-  <!-- Add button (for Medium to Large Devices) -->
-  <div class="options-container">
-    <button class="btn__block-contained--add-form" type="button">
-      <i class="fas fa-plus"></i>
-      <h3>Add New Contact</h3>
-    </button>
-  </div>
-
-  <!-- Tab Options -->
-  <div class="tabs-container">
-    <a class="tabs-option tabs-option__all-contacts selected" href="#">
-      <span class="tabs-option__inner-wrapper">
-        <h3 class="text--semi-bold">All Contacts</h3>
+    <!-- <header class="logo__header"> -->
+    <header class="logo__header--lazy loading">
+      <span class="logo-title">
+        <i class="fas fa-address-book fa-flip-horizontal"></i>
+        <h1><!-- "Contacts" (added via script) --></h1>
       </span>
-    </a>
-    <a class="tabs-option tabs-option__favorites" href="#">
-      <span class="tabs-option__inner-wrapper">
-        <i class="fas fa-star text--semi-bold"></i>
-        <h3>Favorites</h3>
-      </span>
-    </a>
-  </div>
+      <!-- Back button (for Small Devices) -->
+      <button class="btn__text btn__text--back-form color-slide hidden" type="button">
+        <h3>Back</h3>
+      </button>
 
-  <main>
-    <section class="contact-container fade-up">
-      <div class="contact-paceholder__container">
-        <img src="#" alt="" class="contact-paceholder__image" />
-        <a href="#" class="contact-paceholder__text-wrapper">
-          <p class="contact-paceholder__text">No contact available. Add contact?</p>
-        </a>
-      </div>
+      <!-- Add button -->
+      <button class="btn__text btn__text--add-form color-slide" type="button">
+        <i class="fas fa-plus"></i>
+        <h3>Add</h3>
+      </button>
+      <!-- Edit button -->
+      <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
+        <i class="fas fa-edit"></i>
+        <h3>Edit</h3>
+      </button>
+    </header>
 
-      <!-- "All Contact" List -->
-      <div class="contact-list__container hidden">
-        <!-- Sample of a contact element -->
-        <!-- <div class="contact-list">
+    <!-- Add button (for Medium to Large Devices) -->
+    <!-- <div class="options-container"> -->
+    <div class="options-container">
+      <!-- <button class="btn__block-contained--add-form" type="button"> -->
+      <button class="btn__block-contained--add-form--lazy loading" type="button">
+        <i class="fas fa-plus"></i>
+        <h3><!-- Add New Contact (added via script)--></h3>
+      </button>
+    </div>
+
+    <!-- Tab Options -->
+    <div class="tabs-container">
+    <!-- <div class="tabs-container--lazy loading"> -->
+      <!-- <a class="tabs-option tabs-option__all-contacts selected" href="#"> -->
+      <a class="tabs-option__all-contacts--lazy loading" href="#">
+        <span class="tabs-option__inner-wrapper">
+          <h3 class="text--semi-bold"><!-- All Contacts (added via script)--></h3>
+        </span>
+      </a>
+      <!-- <a class="tabs-option tabs-option__favorites" href="#"> -->
+      <a class="tabs-option__favorites--lazy loading" href="#">
+        <span class="tabs-option__inner-wrapper">
+          <i class="fas fa-star text--semi-bold"></i>
+          <h3><!-- Favorites (added via script)--></h3>
+        </span>
+      </a>
+    </div>
+
+    <main>
+      <section class="contact-container fade-up">
+        <div class="contact-placeholder__container">
+          <img src="#" alt="" class="contact-placeholder__image" />
+          <a href="#" class="contact-placeholder__text-wrapper">
+            <!-- <p class="contact-placeholder__text">No contact available. Add contact?</p> -->
+            <p class="contact-placeholder__text--lazy loading"><!-- No contact available. Add contact? (added via script)--></p>
+          </a>
+        </div>
+
+        <!-- "All Contact" List -->
+        <div class="contact-list__container hidden">
+          <!-- Sample of a contact element -->
+          <!-- <div class="contact-list">
           <label class="contact-list__icon--favorite">
             <input type="checkbox" id="checkboxID">
             <span class="pseudo--favorite"></span>
@@ -91,50 +98,51 @@
             <span class="contact-list__icon--right-arrow"><i class="fas fa-chevron-right"></i></span>
           </a>
         </div> -->
-      </div>
-
-      <!-- "Favorites" List -->
-      <div class="contact-list__container--favourites hidden"></div>
-    </section>
-
-    <!-- Contact View Page -->
-    <section class="contact-view__container hidden">
-      <!-- Edit button (for Medium to Large Devices) -->
-      <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
-        <i class="fas fa-edit"></i>
-        <h3>Edit</h3>
-      </button>
-
-      <!-- Contact View Page: Name -->
-      <h2 class="contact-view__name-input--text">(name)</h2>
-
-      <!-- Contact View Page: Email -->
-      <div class="contact-view__email-container">
-        <div class="contact-view__email-label">
-          <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
-          <span class="contact-view__email-label--label">
-            <p class="text--semi-bold">Email</p>
-          </span>
         </div>
-        <div class="contact-view__email-input">
-          <p class="contact-view__email-input--text" type="text"></p>
-        </div>
-      </div>
 
-      <!-- Contact View Page: Phone -->
-      <div class="contact-view__phone-container">
-        <div class="contact-view__phone-label">
-          <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
-          <span class="contact-view__phone-label--label">
-            <p class="text--semi-bold">Phone</p>
-          </span>
+        <!-- "Favorites" List -->
+        <div class="contact-list__container--favourites hidden"></div>
+      </section>
+
+      <!-- Contact View Page -->
+      <!-- <section class="contact-view__container hidden loading"> -->
+      <section class="contact-view__container--lazy loading">
+        <!-- Edit button (for Medium to Large Devices) -->
+        <button class="btn__text btn__text--edit-form color-slide hidden" type="button">
+          <i class="fas fa-edit"></i>
+          <h3>Edit</h3>
+        </button>
+
+        <!-- Contact View Page: Name -->
+        <h2 class="contact-view__name-input--text">(name)</h2>
+
+        <!-- Contact View Page: Email -->
+        <div class="contact-view__email-container">
+          <div class="contact-view__email-label">
+            <span class="contact-view__email-label--icon"><i class="far fa-envelope"></i></span>
+            <span class="contact-view__email-label--label">
+              <p class="text--semi-bold">Email</p>
+            </span>
+          </div>
+          <div class="contact-view__email-input">
+            <p class="contact-view__email-input--text" type="text"></p>
+          </div>
         </div>
-        <div class="contact-view__phone-input">
-          <p class="contact-view__view__phone-input--text" type="text"></p>
+
+        <!-- Contact View Page: Phone -->
+        <div class="contact-view__phone-container">
+          <div class="contact-view__phone-label">
+            <span class="contact-view__phone-label--icon"><i class="fas fa-phone-alt"></i></span>
+            <span class="contact-view__phone-label--label">
+              <p class="text--semi-bold">Phone</p>
+            </span>
+          </div>
+          <div class="contact-view__phone-input">
+            <p class="contact-view__view__phone-input--text" type="text"></p>
+          </div>
         </div>
-      </div>
-      </div>
-    </section>
+  </div>
+  </section>
   </main>
 
   <!-- Module -->
@@ -150,7 +158,8 @@
           <h2>Add Contact</h2>
         </span>
         <!-- Save button -->
-        <button class="btn__text btn__text--save-form color-slide" type="submit" form="module-form"><i class="fas fa-check"></i>
+        <button class="btn__text btn__text--save-form color-slide" type="submit" form="module-form"><i
+            class="fas fa-check"></i>
           <h3>Save</h3>
         </button>
         <!-- Update button -->
@@ -244,7 +253,7 @@
   </div>
 
   <div class="module__overlay hidden"></div>
-</div>
+  </div>
 
   <noscript>You need to enable JavaScript to run this app.</noscript>
 </body>
