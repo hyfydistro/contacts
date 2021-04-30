@@ -8,16 +8,19 @@ const mode = process.env.NODE_ENV === "production" ? "production" : "development
 
 // Temporary workaround for "browserslist" bug that is being patched in the near future
 // Bug: does not persist with webpack live server
-const target = process.env.NODE_ENV === "production" ? "browserslist" : "web";
+const target = process.env_NODE_ENV === "production" ? "browserslist" : "web";
 
 // * Runs slow for setup, then fast
-const sourcemapMode = process.env.NODE_ENV === "production" ? "source-map" : "eval-source-map";
+const sourcemapMode = process.env_NODE_ENV === "production" ? "source-map" : "eval-source-map";
 
 module.exports = {
   mode: mode,
-  entry: "./src/main.bundler.js",
+  entry: {
+    index: "./src/main.bundler.js",
+    assets: "./src/assets.js"
+  },
   output: {
-    filename: "bundler.js",
+    filename: "[name].bundler.js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "images/[hash][ext][query]"
   },
