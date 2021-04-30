@@ -12,5 +12,7 @@ module.exports = {
     "jest-playwright": {
       browsers: ["chromium", "firefox", "webkit"]
     }
-  }
+  },
+  // Exit when pass 20s
+  testTimeout: 30000
 };
