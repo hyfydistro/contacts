@@ -51,6 +51,6 @@ dist
 .serverless/
 
 # noise files
-package-lock.json
+# package-lock.json
 favicon.ico
 site.webmanifest
