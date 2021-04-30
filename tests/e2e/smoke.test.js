@@ -3,8 +3,8 @@ import {chromium, webkit, firefox, Browser, Page} from "playwright"
 let browser = Browser
 let page = Page
 // const PAGE_URL = "http://localhost:3000/"
-// const PAGE_URL = "https://hyfydistro.github.io/contacts/index.html"
-const PAGE_URL = "http://192.168.1.7:8080"
+const PAGE_URL = "https://hyfydistro.github.io/contacts/index.html"
+// const PAGE_URL = "http://192.168.1.7:8080"
 
 describe("visit page", () => {
   beforeAll(async () => {
