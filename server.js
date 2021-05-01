@@ -27,7 +27,7 @@ app.get("/index.bundler.js", (req, res) => {
     res.set("Content-Encoding", "br");
     // Tell the browser we are sending a javascript file (optional; recommended)
     res.set("Content-Type", "application/javascript; charset=UTF-8");
-    res.sendFile(join(__dirname, "dist", "indexedDB.bundler.js.br"));
+    res.sendFile(join(__dirname, "dist", "index.bundler.js.br"));
   } else if (req.header("Accept-Encoding").includes("gz")) {
     console.log("calling gzip");
 
