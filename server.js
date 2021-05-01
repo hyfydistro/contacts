@@ -42,7 +42,24 @@ app.get("/index.bundler.js", (req, res) => {
 });
 
 app.get("/assets.bundler.js", (req, res) => {
-  res.sendFile(join(__dirname, "dist", "assets.bundler.js"));
+  if (req.header("Accept-Encoding").includes("br")) {
+    console.log("calling brotli");
+
+    res.set("Content-Encoding", "br");
+    res.set("Content-Type", "application/javascript; charset=UTF-8");
+    res.sendFile(join(__dirname, "dist", "assets.bundler.js.br"));
+  } else if (req.header("Accept-Encoding").includes("gz")) {
+    console.log("calling gzip");
+
+    res.set("Content-Encoding", "gzip");
+    res.set("Content-Type", "application/javascript; charset=UTF-8");
+    res.sendFile(join(__dirname, "dist", "assets.bundler.js.gz"));
+  } else {
+    console.log("calling uncompressed");
+
+    res.sendFile(join(__dirname, "dist", "assets.bundler.js"));
+  }
+
 });
 
 // other general files requested
