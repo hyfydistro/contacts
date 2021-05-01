@@ -85,31 +85,31 @@ module.exports = {
     // Otherwise, comment
 
     // with gzip
-    new CompressionPlugin({
-      filename: "[path][base].gz",
+    // new CompressionPlugin({
+    //   filename: "[path][base].gz",
 
-      // include: /src/
-      // include: /dist/
-      algorithm: "gzip",
+    //   // include: /src/
+    //   // include: /dist/
+    //   algorithm: "gzip",
 
-      // test: /\.(js|css|html)$/,
-      test: /\.(js)$/,
+    //   // test: /\.(js|css|html)$/,
+    //   test: /\.(js)$/,
 
-      // level 9 is the highest fo gzip, other algorithm may vary (see doc)
-      compressionOptions: {level: 7},
-      // compressionOptions: {level: 9}
+    //   // level 9 is the highest fo gzip, other algorithm may vary (see doc)
+    //   compressionOptions: {level: 7},
+    //   // compressionOptions: {level: 9}
 
-      // Only assets bigger than this size are processed (in Bytes)
-      // threshold: 8192
+    //   // Only assets bigger than this size are processed (in Bytes)
+    //   // threshold: 8192
 
-      // Only assets that compress better than this ratio are processed (minRatio = Compressed Size / Original Size)
-      // - you can use `1` value to process assets that are smaller than the original.
-      // - Use a value of `Infinity` to process all assets even if they are larger than the original size or their original size is 0 bytes (useful when you are pre-zipping all assets for AWS)
-      // Use a value of `Number.MAX_SAFE_INTEGER` to process all assets even if they are larger than the original size, excluding assets with their original size is `0` bytes
-      // minRaiot: 0.8 // Default
+    //   // Only assets that compress better than this ratio are processed (minRatio = Compressed Size / Original Size)
+    //   // - you can use `1` value to process assets that are smaller than the original.
+    //   // - Use a value of `Infinity` to process all assets even if they are larger than the original size or their original size is 0 bytes (useful when you are pre-zipping all assets for AWS)
+    //   // Use a value of `Number.MAX_SAFE_INTEGER` to process all assets even if they are larger than the original size, excluding assets with their original size is `0` bytes
+    //   // minRaiot: 0.8 // Default
 
-      // deleteOriginalAssets: true,
-    }),
+    //   // deleteOriginalAssets: true,
+    // }),
 
     // with zilb (Brotl)
     new CompressionPlugin({
