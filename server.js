@@ -28,7 +28,7 @@ app.get("/index.bundler.js", (req, res) => {
     // Tell the browser we are sending a javascript file (optional; recommended)
     res.set("Content-Type", "application/javascript; charset=UTF-8");
     res.sendFile(join(__dirname, "dist", "index.bundler.js.br"));
-  } /* else if (req.header("Accept-Encoding").includes("gz")) {
+  } else if (req.header("Accept-Encoding").includes("gz")) {
     console.log("calling gzip");
 
     res.set("Content-Encoding", "gzip");
@@ -38,7 +38,7 @@ app.get("/index.bundler.js", (req, res) => {
     console.log("calling uncompressed");
 
     res.sendFile(join(__dirname, "dist", "index.bundler.js"));
-  } */
+  }
 });
 
 app.get("/assets.bundler.js", (req, res) => {
@@ -48,7 +48,7 @@ app.get("/assets.bundler.js", (req, res) => {
     res.set("Content-Encoding", "br");
     res.set("Content-Type", "application/javascript; charset=UTF-8");
     res.sendFile(join(__dirname, "dist", "assets.bundler.js.br"));
-  } /* else if (req.header("Accept-Encoding").includes("gz")) {
+  } else if (req.header("Accept-Encoding").includes("gz")) {
     console.log("calling gzip");
 
     res.set("Content-Encoding", "gzip");
@@ -58,7 +58,7 @@ app.get("/assets.bundler.js", (req, res) => {
     console.log("calling uncompressed");
 
     res.sendFile(join(__dirname, "dist", "assets.bundler.js"));
-  } */
+  }
 
 });
 
