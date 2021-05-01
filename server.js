@@ -20,7 +20,7 @@ app.use("*", (req, res, next) => {
 // requested files
 app.get("/index.bundler.js", (req, res) => {
   // If the receiving browser accepts brotli-compressed files, send to browser
-  /* if (req.header("Accept-Encoding").includes("br")) {
+  if (req.header("Accept-Encoding").includes("br")) {
     console.log("calling brotli");
 
     // Tell the browser what's inside that compressed file (optional; recommended)
@@ -28,7 +28,7 @@ app.get("/index.bundler.js", (req, res) => {
     // Tell the browser we are sending a javascript file (optional; recommended)
     res.set("Content-Type", "application/javascript; charset=UTF-8");
     res.sendFile(join(__dirname, "dist", "indexedDB.bundler.js.br"));
-  } else */if (req.header("Accept-Encoding").includes("gz")) {
+  } else if (req.header("Accept-Encoding").includes("gz")) {
     console.log("calling gzip");
 
     res.set("Content-Encoding", "gzip");
