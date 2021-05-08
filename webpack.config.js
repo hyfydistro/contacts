@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // compression plugin
 const CompressionPlugin = require("compression-webpack-plugin");
 const zlib = require("zlib");
+// Workbox
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 // Coupled with setting NODE_ENV via npm "scripts"
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
@@ -23,8 +25,7 @@ module.exports = {
     assets: "./src/assets.js"
   },
   output: {
-    // filename: "[name].bundler.js",
-    filename: "[name].bundler.js",
+    filename: "[name].bundler.[chunkhash].js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "images/[hash][ext][query]"
   },
@@ -67,7 +68,13 @@ module.exports = {
           "postcss-loader",
           "sass-loader",
         ]
-      }
+      },
+
+      // # Misc.
+      // {
+      //   test: /\.html$/i,
+      //   loader: 'html-loader',
+      // }
     ]
   },
 
@@ -77,15 +84,14 @@ module.exports = {
     // new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "Contacts Web App",
+      filename: "index.html",
       template: path.resolve(__dirname, "src", "index.html"),
       inject: "body",
     }),
 
-    // # ONLY for PRODUCTION
-    // Otherwise, comment
-
     // with gzip
     new CompressionPlugin({
+      // exclude: /^(sw|workbox)/,
       filename: "[path][base].gz",
 
       // include: /src/
@@ -113,6 +119,7 @@ module.exports = {
 
     // with zilb (Brotl)
     new CompressionPlugin({
+      // exclude: /^(sw|workbox)/,
       filename: "[path][base].br",
       algorithm: "brotliCompress",
       // test: /\.(js|css|html|svg)$/,
@@ -125,8 +132,27 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8,
       deleteOriginalAssets: false
+    }),
+
+    new InjectManifest({
+      swSrc: "./src/sw.js",
+      swDest: "sw.js",
+
+      // debug: true,
+
+      exclude: [
+        /\.map$/,
+        /manifest$/,
+        /\.htaccess$/,
+        /service-worker\.js$/,
+        /sw\.js$/,
+      ],
     })
   ],
+
+  optimization: {
+    moduleIds: "deterministic"
+  },
 
   // # Misc.
   target: target,
