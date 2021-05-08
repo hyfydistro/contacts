@@ -1,3 +1,4 @@
+import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute'
 import { registerRoute } from 'workbox-routing';
 import { CacheFirst, StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
@@ -5,9 +6,11 @@ import { ExpirationPlugin } from 'workbox-expiration';
 
 console.log("⚙ Hello from Service Worker");
 
+precacheAndRoute(self.__WB_MANIFEST);
+
 registerRoute(
   // ({url}) => url.origin === "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
-  new RegExp("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"),
+  new RegExp("^https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"),
   new NetworkFirst({
     cacheName: "font-awesome-stylesheet",
     plugins: [
@@ -54,6 +57,5 @@ registerRoute(
   })
 );
 
+// * Use (uncomment) with care
 // workbox.skipWaiting();
-
-// precacheAndRoute(self.__WB_MANIFEST || []);
